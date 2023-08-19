@@ -62,6 +62,7 @@
                     <div class="form_input_container">
                         <input type="text" class="form_input" placeholder="Nome" name="nome">
                         <input type="email" class="form_input" placeholder="Email" name="email">
+                        <input type="text" class="form_input" placeholder="Endereço" name="endereco">
                         <input type="password" class="form_input" placeholder="Senha" name="senha">
                         <input type="password" class="form_input" placeholder="Confirmar Senha" name="confirmar_senha">
                     </div>

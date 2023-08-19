@@ -9,10 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // validar os dados de entrada
     $nome = filter_input(INPUT_POST, 'nome');
     $email = filter_input(INPUT_POST, 'email',);
+    $endereco = filter_input(INPUT_POST, 'endereco');
     $senha = $_POST['senha'];
     $confirmarSenha = $_POST['confirmar_senha'];
 
-    if (empty($nome) || empty($email) || empty($senha) || empty($confirmarSenha)) {
+    if (empty($nome) || empty($email) || empty($endereco) || empty($senha) || empty($confirmarSenha)) {
         // Erro caso algum campo esteja vazio
         header("Location: index.php?error=1");
         exit();
@@ -47,8 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // Inserir dados no banco de dados usando Prepared Statements
-        $stmt = $PDO->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
-        $stmt->execute([$nome, $email, $senhaHash]);
+        $stmt = $PDO->prepare("INSERT INTO usuarios (nome, email, endereco, senha) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$nome, $email, $endereco, $senhaHash]);
 
         // Redireciona para a página de login se for feito com sucesso
         header("Location: index.php?success=1");
