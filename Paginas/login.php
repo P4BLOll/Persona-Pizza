@@ -10,10 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
+    if (empty($email)|| empty($senha)) {
+            $_SESSION['error'] = "Todos os campos são obrigatórios!";
+            header("Location: index.php?action=login");
+    exit();
+    }
+
         // Compara para fazer a procura no banco
         $stmt = $PDO->prepare("SELECT * FROM usuarios WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
 
         if ($user && password_verify($senha, $user['senha'])) {
             // Senha correta
@@ -25,12 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
             } else {
                 // Senha incorreta
-                header("Location: login.php?error=3");
+                $_SESSION['error'] = "Senha ou email incorretos!";
+                header("Location: index.php?action=login");
                 exit();
             }
-        } else {
-            // Usuário não encontrado
-            header("Location: login.php?error=4");
-            exit();
-        }
+        } 
     }

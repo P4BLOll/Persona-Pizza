@@ -3,25 +3,26 @@
 session_start();
 
 // Conecte-se ao banco de dados
-require 'conexao.php'; 
+require 'conexao.php';
+
+$_SESSION['overlayActive'] = true;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // validar os dados de entrada
     $nome = filter_input(INPUT_POST, 'nome');
     $email = filter_input(INPUT_POST, 'email',);
-    $endereco = filter_input(INPUT_POST, 'endereco');
     $senha = $_POST['senha'];
     $confirmarSenha = $_POST['confirmar_senha'];
 
-    if (empty($nome) || empty($email) || empty($endereco) || empty($senha) || empty($confirmarSenha)) {
-        // Erro caso algum campo esteja vazio
-        header("Location: index.php?error=1");
+    if (empty($nome) || empty($email) || empty($senha) || empty($confirmarSenha)) {
+        $_SESSION['error'] = "Todos os campos são obrigatórios!";
+        header("Location: index.php?action=cadastro");
         exit();
     }
-
+    
     if ($senha !== $confirmarSenha) {
-        // Erro caso as senhas não estejam iguais
-        header("Location: index.php?error=2");
+        $_SESSION['error'] = "As senhas não coincidem!";
+        header("Location: index.php?action=cadastro");
         exit();
     }
      // Verificar se o email já está registrado no banco de dados
@@ -35,12 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userNome = $stmtNome->fetch(PDO::FETCH_ASSOC);
 
     if ($userEmail) {
-        // Email já registrado, redirecionar de volta para o formulário de registro com mensagem de erro
-        header("Location: index.php?error=3");
+        $_SESSION['error'] = "Este email já está registrado!";
+        header("Location: index.php?action=cadastro");
         exit();
     } elseif ($userNome) {
-        // Nome já registrado, redirecionar de volta para o formulário de registro com mensagem de erro
-        header("Location: index.php?error=4");
+        $_SESSION['error'] = "Este nome de usuário já está em uso!";
+        header("Location: index.php?action=cadastro");
         exit();
     }
     // Armazene senhas de forma segura
@@ -48,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // Inserir dados no banco de dados usando Prepared Statements
-        $stmt = $PDO->prepare("INSERT INTO usuarios (nome, email, endereco, senha) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$nome, $email, $endereco, $senhaHash]);
+        $stmt = $PDO->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$nome, $email, $senhaHash]);
 
         // Redireciona para a página de login se for feito com sucesso
         header("Location: index.php?success=1");

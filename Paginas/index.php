@@ -1,6 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
+<?php
+session_start();
+// Verifique se há uma mensagem de erro na sessão
+$errorMsg = isset($_SESSION['error']) ? $_SESSION['error'] : '';
+unset($_SESSION['error']); // Limpe a mensagem de erro da sessão
 
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +46,9 @@
                     <div class="form_input_container">
                         <input type="email" class="form_input" placeholder="Email" name="email" id="">
                         <input type="password" class="form_input" placeholder="Senha" name="senha" id="">
+                        <?php if (!empty($errorMsg) && isset($_GET['action']) && $_GET['action'] === 'login'): ?>
+                            <p class="error-message"><?php echo $errorMsg; ?></p>
+                        <?php endif; ?>
                     </div>
                     <button class="form_button" type="submit">Entrar</button>
                     <a href="#" class="form_link">Esqueceu a Senha?</a>
@@ -62,9 +71,12 @@
                     <div class="form_input_container">
                         <input type="text" class="form_input" placeholder="Nome" name="nome">
                         <input type="email" class="form_input" placeholder="Email" name="email">
-                        <input type="text" class="form_input" placeholder="Endereço" name="endereco">
                         <input type="password" class="form_input" placeholder="Senha" name="senha">
                         <input type="password" class="form_input" placeholder="Confirmar Senha" name="confirmar_senha">
+                         <!-- Mensagem de erro -->
+                         <?php if (!empty($errorMsg) && isset($_GET['action']) && $_GET['action'] === 'cadastro'): ?>
+                            <p class="error-message"><?php echo $errorMsg; ?></p>
+                        <?php endif; ?>
                     </div>
                     <button class="form_button" type="submit">Cadastrar</button>
                     <div class="form_redes">

@@ -9,8 +9,11 @@
     transition: 1s;
     background-color: var(--secundary-color);
 }
+.error-message {
+    color: var(--color-error);
+    font-size: 14px;
 
-
+}
 
 .form-cadastro{
     transform: translateX(-100%);
