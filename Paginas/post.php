@@ -34,6 +34,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: social_media.php");
     exit();
 }
-
-
-

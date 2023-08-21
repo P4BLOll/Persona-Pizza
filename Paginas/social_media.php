@@ -16,16 +16,18 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Rede Social</title>
 </head>
+
 <body>
     <h1>Bem-vindo à Rede Social!</h1>
     <p>Olá, <?php echo $user['nome']; ?>! Aqui você pode compartilhar suas atualizações.</p>
     <form action="post.php" method="post" enctype="multipart/form-data">
-    <textarea name="post_content" placeholder="Compartilhe algo..."></textarea>
-    <input type="file" name="image">
-    <button type="submit">Publicar</button>
+        <textarea name="post_content" placeholder="Compartilhe algo..."></textarea>
+        <input type="file" name="image">
+        <button type="submit">Publicar</button>
     </form>
     <h2>Últimas Atualizações</h2>
     <?php
@@ -56,4 +58,5 @@ while ($post = $stmtPosts->fetch(PDO::FETCH_ASSOC)) {
 ?>
 
 </body>
+
 </html>
