@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // Inserir dados no banco de dados usando Prepared Statements
-        $stmt = $PDO->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?");
+        $stmt = $PDO->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
         $stmt->execute([$nome, $email, $senhaHash]);
 
         // Redireciona para a página de login se for feito com sucesso
