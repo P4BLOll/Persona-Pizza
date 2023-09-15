@@ -66,7 +66,7 @@ if (isset($_SESSION['user_id'])) {
               </a>
             </li>
             <li class="list">
-              <a href="cardapio.html" class="nav-link">
+              <a href="cardapio.php" class="nav-link">
                 <i class="bx bx-category icon"></i>
                 <span class="link">Cardápio</span>
               </a>
