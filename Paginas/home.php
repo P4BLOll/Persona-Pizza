@@ -80,7 +80,7 @@ if (isset($_SESSION['user_id'])) {
             <li class="list">
               <a href="#" class="nav-link">
                 <i class="bx bx-message-square-dots icon"></i>
-                <span class="link">Blog</span>
+                <span class="link">social</span>
               </a>
             </li>
             <div class="bottom-cotent">
@@ -115,8 +115,7 @@ if (isset($_SESSION['user_id'])) {
             autoplay
             muted
             loop
-            data-aos="zoom-out-down"
-            data-aos-duration="2000"
+           
           ></video
         ></span>
         <span class="divisão"></span>
@@ -125,16 +124,15 @@ if (isset($_SESSION['user_id'])) {
             <img
               src="img/logo.svg"
               alt=""
-              data-aos="fade-up"
-              data-aos-delay="1000"
+              
             />
           </div>
           <div class="element">
-            <h1 data-aos="fade-down" data-aos-delay="1000">PersonaPizza</h1>
-            <p data-aos="fade-down" data-aos-delay="1000">
+            <h1 >PersonaPizza</h1>
+            <p >
               Personalize suas Pizzas
             </p>
-            <a data-aos="fade-down" data-aos-delay="1000" href="login"
+            <a  href="login"
               >Começar</a
             >
           </div>
@@ -225,8 +223,8 @@ navBar.classList.remove("open");
 });
 
 
-  //Animação no scrolling
-  AOS.init();
-  //
+  // //Animação no scrolling
+  // AOS.init();
+  // //
 </script>
 
