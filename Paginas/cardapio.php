@@ -38,7 +38,7 @@
             <a href="">Carrinho</a>
           </li>
           <div>
-            <a href="#" class="nav-link">
+            <a href="index.php" class="nav-link">
               <i class="bx bx-log-in icon"></i>
               <span class="link">Entrar</span>
             </a>
@@ -53,19 +53,19 @@
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="index.html" class="nav-link">
+              <a href="home.php" class="nav-link">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Home</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="perfil.php" class="nav-link">
                 <i class="bx bx-user icon"></i>
                 <span class="link">Conta</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="cardapio.php" class="nav-link">
                 <i class="bx bx-category icon"></i>
                 <span class="link">Cardápio</span>
               </a>
@@ -86,7 +86,7 @@
 
           <div class="bottom-cotent">
             <li class="list sair">
-              <a href="#" class="nav-link sair-a">
+              <a href="index.php" class="nav-link sair-a">
                 <i class="bx bx-log-in icon"></i>
                 <span class="link">Entrar</span>
               </a>
@@ -1199,7 +1199,7 @@
         </div>
         <!-- // -->
         <section class="criarpizza">
-          <a href="">Crie uma do Zero</a>
+          <a href="criarpizza/index.html">Crie uma do Zero</a>
         </section>
       </div>
     </main>

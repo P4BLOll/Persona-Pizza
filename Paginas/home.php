@@ -10,11 +10,12 @@ if (isset($_SESSION['user_id'])) {
 ?>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="/fonthttps://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
@@ -53,13 +54,13 @@ if (isset($_SESSION['user_id'])) {
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="index.html" class="nav-link">
+              <a href="home.php" class="nav-link">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Home</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="perfil.php" class="nav-link">
                 <i class="bx bx-user icon"></i>
                 <span class="link">Conta</span>
               </a>
@@ -83,7 +84,7 @@ if (isset($_SESSION['user_id'])) {
               </a>
             </li>
             <div class="bottom-cotent">
-          <a href="login.php" class="nav-link">
+          <a href="index.php" class="nav-link">
             <i class="bx bx-log-in icon"></i>
             <span class="link">Entrar</span>
           </a>

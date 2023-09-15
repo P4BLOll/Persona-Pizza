@@ -4,8 +4,8 @@ session_start();
 
 // Verifica se o usuário não está logado e sai do script se não estiver
 if (!isset($_SESSION['user_id'])) {
+  header("Location: index.php?");
     exit();
-    header("Location: login.php?");
 }
 
 // Requer o arquivo de conexão com o banco de dados
@@ -64,13 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
         <ul>
           <li>
             <a href="home.php">Home</a>
-            <a href="">Conta</a>
+            <a href="perfil.php">Conta</a>
             <a href="cardapio.php">Cardápio</a>
             <a href="">Blog</a>
             <a href="">Carrinho</a>
           </li>
           <div>
-            <a href="#" class="nav-link">
+            <a href="index.php" class="nav-link">
               <i class="bx bx-log-in icon"></i>
               <span class="link">Entrar</span>
             </a>
@@ -85,19 +85,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list">
-              <a href="index.html" class="nav-link">
+              <a href="home.php" class="nav-link">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Home</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="perfil.php" class="nav-link">
                 <i class="bx bx-user icon"></i>
                 <span class="link">Conta</span>
               </a>
             </li>
             <li class="list">
-              <a href="cardapio.html" class="nav-link">
+              <a href="cardapio.php" class="nav-link">
                 <i class="bx bx-category icon"></i>
                 <span class="link">Cardápio</span>
               </a>
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
 
           <div class="bottom-cotent">
             <li class="list sair">
-              <a href="#" class="nav-link sair-a">
+              <a href="index.php" class="nav-link sair-a">
                 <i class="bx bx-log-in icon"></i>
                 <span class="link">Entrar</span>
               </a>
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     <div class="elipse">
     <img src="img/Ellipse 50.svg" alt="">
     </div>
-    <h1 class="name_u">Perfil do Usuário</h1>
+    <h1 class="name_u">Bem Vindo, <?php echo $user['nome']; ?></h1>
     <?php if (!empty($user['foto_perfil'])) : ?>
     <div class="foto_perfil">
         <div class="moldura">
