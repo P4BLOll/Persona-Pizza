@@ -5,6 +5,7 @@ session_start();
 // Verifica se o usuário não está logado e sai do script se não estiver
 if (!isset($_SESSION['user_id'])) {
     exit();
+    header("Location: login.php?");
 }
 
 // Requer o arquivo de conexão com o banco de dados
@@ -40,29 +41,114 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
 
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Perfil do Usuário</title>
+<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/fonthttps://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link rel="stylesheet" href="css/perfil.css"> <!-- Importa o arquivo de estilo CSS -->
 </head>
 
 <body>
-    <h1>Perfil do Usuário</h1>
+     <!-- SideBar -->
+     <nav>
+      <div class="logo">
+         <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">PersonaPizza</span>
+        <ul>
+          <li>
+            <a href="home.php">Home</a>
+            <a href="">Conta</a>
+            <a href="cardapio.php">Cardápio</a>
+            <a href="">Blog</a>
+            <a href="">Carrinho</a>
+          </li>
+          <div>
+            <a href="#" class="nav-link">
+              <i class="bx bx-log-in icon"></i>
+              <span class="link">Entrar</span>
+            </a>
+          </div>
+        </ul>  
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-arrow-back menu-icon"></i>
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="index.html" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Home</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-user icon"></i>
+                <span class="link">Conta</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="cardapio.html" class="nav-link">
+                <i class="bx bx-category icon"></i>
+                <span class="link">Cardápio</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-cart icon"></i>
+                <span class="link">Carrinho</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-message-square-dots icon"></i>
+                <span class="link">Blog</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="bottom-cotent">
+            <li class="list sair">
+              <a href="#" class="nav-link sair-a">
+                <i class="bx bx-log-in icon"></i>
+                <span class="link">Entrar</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="elipse">
+    <img src="img/Ellipse 50.svg" alt="">
+    </div>
+    <h1 class="name_u">Perfil do Usuário</h1>
     <?php if (!empty($user['foto_perfil'])) : ?>
-        <div class="foto_perfil">
+    <div class="foto_perfil">
+        <div class="moldura">
             <img class="foto" src="<?php echo $user['foto_perfil']; ?>" alt="Foto de Perfil">
-            <div class="trocar_foto_btn">Trocar Foto de Perfil</div>
         </div>
-    <?php else: ?>
-        <div class="foto_perfil">
+    </div>
+<?php else : ?>
+    <div class="foto_perfil">
+        <div class="moldura">
             <img class="foto" src="img/default_profile.png" alt="Foto de Perfil Padrão">
-            <div class="trocar_foto_btn">Trocar Foto de Perfil</div>
         </div>
-    <?php endif; ?>
-    
+    </div>
+<?php endif; ?>
+<button id="trocar_foto_btn">Trocar Foto de Perfil</button>
     <!-- Exibe informações do usuário -->
     <p><strong>Nome:</strong> <?php echo $user['nome']; ?></p>
     <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
+    
     
     <!-- Formulário para envio de nova foto de perfil -->
     <div id="upload_form">
@@ -75,11 +161,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     
     <!-- Script para alternar a exibição do formulário de upload de foto -->
     <script>
-        const fotoPerfil = document.querySelector('.foto_perfil');
+        const trocarFotoBtn = document.getElementById('trocar_foto_btn');
         const uploadForm = document.getElementById('upload_form');
         let isFormVisible = false;
         
-        fotoPerfil.addEventListener('click', () => {
+        trocarFotoBtn.addEventListener('click', () => {
             if (isFormVisible) {
                 uploadForm.style.display = 'none';
             } else {
@@ -96,4 +182,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
 </body>
 
 </html>
+<script>
+const navBar = document.querySelector("nav"),
+menuBtns = document.querySelectorAll(".menu-icon"),
+overlay = document.querySelector(".overlay");
+
+menuBtns.forEach((menuBtn) => {
+menuBtn.addEventListener("click", () => {
+  navBar.classList.toggle("open");
+});
+});
+
+overlay.addEventListener("click", () => {
+navBar.classList.remove("open");
+});
+
+
+  //Animação no scrolling
+  AOS.init();
+  //
+</script>
+
 
