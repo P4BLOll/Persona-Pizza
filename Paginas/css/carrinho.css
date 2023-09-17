@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #191919;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrinho-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.carrinho-item h2 {
+    margin: 0;
+}
+
+.preco-unitario, .preco-total {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+
+.quantidade {
+    width: 50px;
+}
+
+.botoes button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.btn-excluir {
+    background-color: #ff4136;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-excluir:hover {
+    background-color: #e50000;
+}

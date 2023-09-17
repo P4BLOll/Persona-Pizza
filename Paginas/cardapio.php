@@ -173,15 +173,18 @@
                 </div>
                 <div class="btns">
                   <a href="pizza_peperoni.php">Comprar</a>
-                  <button class="car">
+                  <form action="adicionar_ao_carrinho.php" method="post">
+                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                  <button class="car" type="submit" name="adicionar_carrinho">
                     <lord-icon
                       src="https://cdn.lordicon.com/udbbfuld.json"
                       trigger="hover"
                       colors="primary:#ffffff"
                       style="width: 25px; height: 25px"
-                    >
+                    >        
                     </lord-icon>
                   </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -240,7 +243,9 @@
                 </div>
                 <div class="btns">
                   <a href="pizza_vegetariana.php">Comprar</a>
-                  <button class="car">
+                  <form action="adicionar_ao_carrinho.php" method="post">
+                  <input type="hidden" name="pizza_id" value="7"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                  <button class="car" type="submit" name="adicionar_carrinho">
                     <lord-icon
                       src="https://cdn.lordicon.com/udbbfuld.json"
                       trigger="hover"
@@ -249,6 +254,7 @@
                     >
                     </lord-icon>
                   </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -307,7 +313,9 @@
                 </div>
                 <div class="btns">
                   <a href="pizza_cogumelos.php">Comprar</a>
-                  <button class="car">
+                  <form action="adicionar_ao_carrinho.php" method="post">
+                  <input type="hidden" name="pizza_id" value="5"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                  <button class="car" type="submit" name="adicionar_carrinho">
                     <lord-icon
                       src="https://cdn.lordicon.com/udbbfuld.json"
                       trigger="hover"
@@ -316,6 +324,7 @@
                     >
                     </lord-icon>
                   </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -374,7 +383,9 @@
                 </div>
                 <div class="btns">
                   <a href="pizza_queijo.php">Comprar</a>
-                  <button class="car">
+                  <form action="adicionar_ao_carrinho.php" method="post">
+                  <input type="hidden" name="pizza_id" value="6"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                  <button class="car" type="submit" name="adicionar_carrinho">
                     <lord-icon
                       src="https://cdn.lordicon.com/udbbfuld.json"
                       trigger="hover"
@@ -383,6 +394,7 @@
                     >
                     </lord-icon>
                   </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -441,7 +453,9 @@
                 </div>
                 <div class="btns">
                   <a href="pizza-presunto.php">Comprar</a>
-                  <button class="car">
+                  <form action="adicionar_ao_carrinho.php" method="post">
+                  <input type="hidden" name="pizza_id" value="8"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                  <button class="car" type="submit" name="adicionar_carrinho">
                     <lord-icon
                       src="https://cdn.lordicon.com/udbbfuld.json"
                       trigger="hover"
@@ -450,6 +464,7 @@
                     >
                     </lord-icon>
                   </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -508,7 +523,9 @@
                 </div>
                 <div class="btns">
                   <a href="pizza_azeitona.php">Comprar</a>
-                  <button class="car">
+                  <form action="adicionar_ao_carrinho.php" method="post">
+                  <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                  <button class="car" type="submit" name="adicionar_carrinho">
                     <lord-icon
                       src="https://cdn.lordicon.com/udbbfuld.json"
                       trigger="hover"
@@ -517,6 +534,7 @@
                     >
                     </lord-icon>
                   </button>
+                  </form>
                 </div>
               </div>
             </div>

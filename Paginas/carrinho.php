@@ -32,7 +32,8 @@
                             echo '  <p>Preço por unidade: R$<span class="preco-unitario">' . $pizza['preco'] . '</span></p>';
                             echo '  <input type="number" class="quantidade" name="quantidade[' . $pizza_id . ']" value="' . $quantidade . '" min="1">'; // Input para alterar a quantidade
                             echo '  <p>Preço total: R$<span class="preco-total">' . ($pizza['preco'] * $quantidade) . '</span></p>'; // Mostra o preço total
-                            echo '</div>';
+                            echo '  <button class="btn-excluir" type="button" data-pizza-id="' . $pizza_id . '">Excluir</button>'; // Botão de exclusão
+                        echo '</div>';
 
                             $total += $pizza['preco'] * $quantidade; // Atualiza o total
                         }
@@ -44,9 +45,8 @@
             </div>
             <div class="botoes">
                 <button type="submit" id="btn-atualizar">Atualizar Carrinho</button>
-                <button>Continuar Comprando</button>
+                <button><a href="cardapio.php">Continuar Comprando</a></button>
                 <button>Finalizar Pedido</button>
-                
             </div>
             <p>Total: R$<span id="preco-total-final">
                     <?php
@@ -74,6 +74,25 @@
             }
 
             document.getElementById('preco-total-final').textContent = total.toFixed(2);
+        });
+
+        var botoesExcluir = document.querySelectorAll('.btn-excluir');
+        botoesExcluir.forEach(function(botao) {
+            botao.addEventListener('click', function(event) {
+                var pizzaId = this.getAttribute('data-pizza-id');
+
+                // Remover a pizza do carrinho na sessão
+                fetch('remover_pizza_carrinho.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'pizza_id=' + pizzaId
+                }).then(function() {
+                    // Após remover, recarregar a página para refletir as mudanças no carrinho
+                    window.location.reload();
+                });
+            });
         });
     </script>
 </body>
