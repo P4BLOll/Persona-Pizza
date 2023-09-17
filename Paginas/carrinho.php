@@ -1,3 +1,12 @@
+
+<?php    
+session_start();
+                
+                if (!isset($_SESSION['user_id'])) {
+                    header("Location: index.php"); // Redireciona para a página de login se o usuário não estiver autenticado
+                    exit();
+                }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +23,7 @@
         <form method="post" action="atualizar_carrinho.php" id="form-carrinho">
             <div class="carrinho-itens">
                 <?php
-                session_start();
+
                 require 'conexao.php';
                 $total = 0;
 

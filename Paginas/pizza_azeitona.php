@@ -1,3 +1,11 @@
+<?php    
+session_start();
+                
+if (!isset($_SESSION['user_id'])) {
+header("Location: index.php"); // Redireciona para a página de login se o usuário não estiver autenticado
+exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +20,6 @@
 <body>
     <div class="container">
         <div class="imgBx">
-            <img src="#" alt="Pizza de Azeitona">
         </div>
         <div class="details">
             <div class="content">
