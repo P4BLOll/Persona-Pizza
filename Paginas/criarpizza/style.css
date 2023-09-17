@@ -1,0 +1,136 @@
+.titulo{
+    padding: 1.5rem;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.information{
+    display: flex;
+    align-items: center;
+    padding: 1.25;
+    margin: 1.5rem;
+    width: 105rem;
+    height: 3rem;
+    border-radius: 0.625rem;
+    background: #C33633;
+}
+
+.information p{
+
+    margin-left: 1.5rem;
+}
+
+svg{
+    margin: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+
+  .collapsible {
+    width: 107.2rem;
+    height: fit-content;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: poppins;
+  #toggle {
+    display: none;
+  }
+  #toggle2 {
+    display: none;
+  }
+  #toggle3 {
+    display: none;
+  }
+  #toggle4 {
+    display: none;
+  }
+
+  .head {
+    font-size: 2rem;
+    display: block;
+    width: 100%;
+    height: 5rem;
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: 5px solid #C33633;
+    position: relative;
+    cursor: pointer;
+  }
+  .head::before {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    font-size: 26px;
+  }
+  .content {
+    width: 94%;
+    background: #2f2b2b;
+    margin: auto;
+    border: 0.4mm solid black;
+    border-top: none;
+    overflow: hidden;
+    max-height: 200px;
+    transition: 0.35s ease-out;
+    border-radius: 0px 0px 20px 20px;
+  }
+  .content span {
+    display: block;
+    padding: 15px;
+    text-align: justify;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 14px;
+    
+  }
+  #toggle:not(:checked) ~ .content {
+    max-height: 0px;
+    visibility: hidden;
+  }
+
+  #toggle2:not(:checked) ~ .content {
+    max-height: 0px;
+    visibility: hidden;
+  }
+
+  #toggle3:not(:checked) ~ .content {
+    max-height: 0px;
+    visibility: hidden;
+  }
+
+  #toggle4:not(:checked) ~ .content {
+    max-height: 0px;
+    visibility: hidden;
+  }
+
+  }
+
+  .checkbox-grid {
+    font-size: 1.3rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 9 colunas */
+    gap: 10px; /* Espaço entre as checkboxes */
+}
+
+/* Estilize cada checkbox */
+.checkbox-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Opcional: Estilize as labels para ficarem ao lado das checkboxes */
+.checkbox-label {
+    margin: 15px;
+}
+
+input{
+    width: 1.5rem;
+    height: 1.5rem;
+
+}

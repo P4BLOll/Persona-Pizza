@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: #191919;
+}
+
+
+.container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1500px;
+    height: 600px;
+    background: #3E3636;
+    margin: 20px;
+    border-radius: 2rem;
+}
+
+.container .imgBx {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background: #EEEBDD;
+    ;
+    transition: .3s linear;
+    border-radius: 2rem;
+    box-shadow: 12px 0 10px rgba(0,0,0,0.3);
+   
+}
+
+.container .imgBx:before {
+    content: 'queijo \a queijo \a queijo \a queijo' 'queijo \a queijo \a queijo ';
+    position: absolute;
+    top: 0px;
+    left: 24px;
+    color: #918e80;
+    opacity: 0.2;
+    font-size: 6em;
+    font-weight: 800;
+}
+
+.container .imgBx img {
+    position: relative;
+    width: 670px;
+    transform: rotate(-20deg);
+    bottom: 25px;
+    left: -25px;
+    transition: .9s linear;
+}
+
+.container .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+    padding-right: 30;
+}
+
+.container .details h2{
+    margin: 0;
+    padding: 0;
+    font-size: 2.4em;
+    line-height: 1em;
+    color: #E73A39;
+}
+
+.container .details h2 span {
+    font-size: 0.4em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.container .details p {
+    max-width: 85%;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 36px;
+}
+
+.container .details h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    color: #E73A39;
+    float: left;
+    padding-right: 30px;
+    position: static;
+}
+.container .details button {
+    background: #E73A39;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 15px 20px;
+    margin-top: 5px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 10px; 
+    float: inline-start;
+    cursor: pointer;
+}
+.container .details button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.btncomprar{
+    width: 11.2rem;
+}
+.product-colors span {
+    width: 26px;
+    height: 26px;
+    top: 7px;
+    margin-right: 12px;
+    left: 10px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.black {
+    background: #000;
+}
+
+.red {
+    background: #D5212E;
+}
+
+.orange {
+    background: #F18557;
+}
+
+.product-colors .active:after{
+    content: "";
+    width: 36px;
+    height: 36px;
+    border: 2px solid #000;
+    position: absolute;
+    border-radius: 50%;
+    box-sizing: border-box;
+    left: -5px;
+    top: -5px;
+}
+.botao{
+    display: inline;
+    margin: 0;
+    padding: 0;
+    align-items: flex-start;
+    float: left;
+   
+}
+/* responsive */
+@media (max-width: 1260px) {
+    .container {
+        height: auto;
+    }
+    .container .imgBx:before {
+        content: 'queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo ';
+    }
+    .container .imgBx {
+        padding: 40px;
+        box-sizing: border-box;
+        width: 100% !important;
+        height: auto;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0 12px 10px rgba(0,0,0,0.3);
+      
+    }
+    .container .imgBx img {
+        left: initial;
+        max-width: 100%;
+        transform: rotate(0deg);
+    }
+    .details {
+        width: 100% !important;
+        height: auto;
+        padding: 20px;
+    }
+    .container .details p {
+        margin-left: 0;
+    }
+}
+@media (max-width: 768px) {
+    .container .details {
+        text-align: center;
+    }
+    .container .details h3 {
+        margin: 0;
+        padding: 0;
+        font-size: 2.5em;
+        color: #E73A39;     
+        float: none;  
+    }
+    .container .details p {
+        max-width: none;
+    }
+}
