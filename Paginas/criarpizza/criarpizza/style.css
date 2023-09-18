@@ -1,0 +1,159 @@
+
+
+.collapsible {
+  margin: 2rem 0 2rem 0;
+    box-sizing: border-box;
+    font-family: poppins;
+  #toggle {
+    display: none;
+  }
+  #toggle2 {
+    display: none;
+  }
+  #toggle3 {
+    display: none;
+  }
+  #toggle4 {
+    display: none;
+  }
+
+  .head {
+    font-size: 2rem;
+    display: block;
+    width: 100%;
+    height: 5rem;
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: 5px solid #C33633;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .head::before {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    font-size: 26px;
+  }
+  
+  .content-group {
+    width: 94%;
+    background: #2f2b2b;
+    margin: auto;
+    border: 0.4mm solid black;
+    border-top: none;
+    overflow: hidden;
+    max-height: 12.5rem;
+    transition: 0.35s ease-out;
+    border-radius: 0px 0px 20px 20px;
+    
+  }
+  .content-group span {
+    display: block;
+    padding: 15px;
+    text-align: justify;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 14px;
+    
+  }
+  #toggle:not(:checked) ~ .content-group {
+    max-height: 0px;
+    visibility: hidden;
+  }
+
+  #toggle2:not(:checked) ~ .content-group{
+    max-height: 0px;
+    visibility: hidden;
+  }
+
+  #toggle3:not(:checked) ~ .content-group {
+    max-height: 0px;
+    visibility: hidden;
+  }
+
+  #toggle4:not(:checked) ~ .content-group {
+    max-height: 0px;
+    visibility: hidden;
+  }
+
+  }
+
+  .checkbox-grid {
+    font-size: 1.3rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+
+
+.checkbox-label {
+    margin: 15px;
+}
+
+input{
+    width: 1.5rem;
+    height: 1.5rem;
+
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-top: 5px;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media screen and (min-width: 700px) {
+  .content-group{
+  overflow: hidden;
+}
+}
+
+
+@media screen and (max-width: 990px){
+  .checkbox-group {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+@media screen and (max-width: 760px){
+  .checkbox-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .information p{
+ font-size: 0.8rem;
+}
+}
+
+@media screen and (max-width: 560px){
+  .checkbox-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
