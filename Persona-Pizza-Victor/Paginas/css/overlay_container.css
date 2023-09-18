@@ -1,0 +1,21 @@
+.overlay_container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--secundary-color);
+    transform: translateX(100%);
+    transition: 1s;
+    z-index: 10;
+}
+
+.login_container.move .overlay_container{
+    transform: translateX(0%);
+}
+
+@media (max-width:768px){
+    .overlay_container{
+        display: none;
+    }
+}
