@@ -24,8 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Inserir a postagem no banco de dados com ou sem imagem
-    $stmt = $PDO->prepare("INSERT INTO publicacoes (id_usuario, conteudo, data_publicacao, imagem) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$userID, $postContent, $currentDate, $imageUploadPath]);
+    $aprovado = false;
+    $stmt = $PDO->prepare("INSERT INTO publicacoes (conteudo, imagem, id_usuario, aprovado, data_publicacao) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$postContent, $imageUploadPath, $userID, $aprovado, $currentDate]);
 
     header("Location: social_media.php");
     exit();

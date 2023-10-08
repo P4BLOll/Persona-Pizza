@@ -1,11 +1,11 @@
-
-<?php    
+<?php
+require 'conexao.php';
 session_start();
-                
-                if (!isset($_SESSION['user_id'])) {
-                    header("Location: index.php"); // Redireciona para a página de login se o usuário não estiver autenticado
-                    exit();
-                }
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,15 +16,14 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
     <link rel="stylesheet" href="css/carrinho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <div class="container">
-        <form method="post" action="atualizar_carrinho.php" id="form-carrinho">
+        <form method="post" action="atualizar_carrinho.php">
             <div class="carrinho-itens">
                 <?php
-
-                require 'conexao.php';
                 $total = 0;
 
                 if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
@@ -36,15 +35,16 @@ session_start();
                         $pizza = $stmt->fetch(PDO::FETCH_ASSOC);
 
                         if ($pizza) {
-                            echo '<div class="carrinho-item">';
-                            echo '  <h2>' . $pizza['nome'] . '</h2>';
-                            echo '  <p>Preço por unidade: R$<span class="preco-unitario">' . $pizza['preco'] . '</span></p>';
-                            echo '  <input type="number" class="quantidade" name="quantidade[' . $pizza_id . ']" value="' . $quantidade . '" min="1">'; // Input para alterar a quantidade
-                            echo '  <p>Preço total: R$<span class="preco-total">' . ($pizza['preco'] * $quantidade) . '</span></p>'; // Mostra o preço total
-                            echo '  <button class="btn-excluir" type="button" data-pizza-id="' . $pizza_id . '">Excluir</button>'; // Botão de exclusão
-                        echo '</div>';
-
-                            $total += $pizza['preco'] * $quantidade; // Atualiza o total
+                ?>
+                            <div class="carrinho-item">
+                                <h2><?= $pizza['nome'] ?></h2>
+                                <p>Preço por unidade: R$<span class="preco-unitario"><?= number_format($pizza['preco'], 2, ',', '.') ?></span></p>
+                                <input type="number" class="quantidade" name="quantidade[<?= $pizza['id'] ?>]" value="<?= $quantidade ?>" min="1">
+                                <p>Preço total: R$<span class="preco-total"><?= number_format(($pizza['preco'] * $quantidade), 2, ',', '.') ?></span></p>
+                                <button type="submit" class="btn-excluir" onclick="removerPizza(<?= $pizza_id ?>)"><i class="fas fa-trash"></i></button>
+                            </div>
+                <?php
+                            $total += $pizza['preco'] * $quantidade;
                         }
                     }
                 } else {
@@ -53,57 +53,46 @@ session_start();
                 ?>
             </div>
             <div class="botoes">
-                <button type="submit" id="btn-atualizar">Atualizar Carrinho</button>
-                <button><a href="cardapio.php">Continuar Comprando</a></button>
+                <button><a class="AB" href="cardapio.php">Continuar Comprando</a></button>
                 <button>Finalizar Pedido</button>
             </div>
             <p>Total: R$<span id="preco-total-final">
-                    <?php
-                    echo $total; // Mostra o valor total
-                    ?>
+                    <?= number_format($total, 2, ',', '.') ?>
                 </span></p>
         </form>
+
     </div>
-
-    <script>
-        document.getElementById('btn-atualizar').addEventListener('click', function(event) {
-            event.preventDefault(); // Previne o comportamento padrão do botão
-
-            var total = 0;
-
-            var quantidades = document.querySelectorAll('.quantidade');
-            var precosUnitarios = document.querySelectorAll('.preco-unitario');
-            var precosTotais = document.querySelectorAll('.preco-total');
-
-            for (var i = 0; i < quantidades.length; i++) {
-                var quantidade = parseInt(quantidades[i].value);
-                var precoUnitario = parseFloat(precosUnitarios[i].innerText);
-                precosTotais[i].innerText = (quantidade * precoUnitario).toFixed(2);
-                total += quantidade * precoUnitario;
-            }
-
-            document.getElementById('preco-total-final').textContent = total.toFixed(2);
-        });
-
-        var botoesExcluir = document.querySelectorAll('.btn-excluir');
-        botoesExcluir.forEach(function(botao) {
-            botao.addEventListener('click', function(event) {
-                var pizzaId = this.getAttribute('data-pizza-id');
-
-                // Remover a pizza do carrinho na sessão
-                fetch('remover_pizza_carrinho.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: 'pizza_id=' + pizzaId
-                }).then(function() {
-                    // Após remover, recarregar a página para refletir as mudanças no carrinho
-                    window.location.reload();
-                });
-            });
-        });
-    </script>
 </body>
+<script>
+    document.addEventListener('change', function(event) {
+        if (event.target.classList.contains('quantidade')) {
+            var pizzaId = event.target.name.match(/\d+/)[0];
+            var novaQuantidade = event.target.value;
+
+            fetch('atualizar_carrinho.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'pizza_id=' + pizzaId + '&nova_quantidade=' + novaQuantidade
+            }).then(function() {
+                window.location.reload();
+            });
+        }
+    });
+
+        function removerPizza(pizzaId) {
+        fetch('remover_pizza_carrinho.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'pizza_id=' + pizzaId
+        }).then(function() {
+            window.location.reload();
+        });
+    }
+
+</script>
 
 </html>

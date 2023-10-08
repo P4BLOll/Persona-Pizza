@@ -19,9 +19,9 @@ unset($_SESSION['error']); // Limpe a mensagem de erro da sessão
     <!-- Links para as fontes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;400;700;900&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;400;700;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+        
     <!-- Inclusão de folhas de estilo -->
     <!-- Reset CSS para padrões de estilo consistentes -->
     <link rel="stylesheet" href="./css/reset.css">
@@ -65,9 +65,9 @@ unset($_SESSION['error']); // Limpe a mensagem de erro da sessão
                     <!-- Container para campos de entrada de email e senha -->
                     <div class="form_input_container">
                         <!-- Campo de entrada para o email -->
-                        <input type="email" class="form_input" placeholder="Email" name="email" id="">
+                        <input type="email" class="form_input" placeholder="Email" name="email" id="Lemail">
                         <!-- Campo de entrada para a senha -->
-                        <input type="password" class="form_input" placeholder="Senha" name="senha" id="">
+                        <input type="password" class="form_input" placeholder="Senha" name="senha" id="LSenha">
                         <!-- Exibe mensagem de erro específica para o formulário de login -->
                         <?php if (!empty($errorMsg) && isset($_GET['action']) && $_GET['action'] === 'login'): ?>
                         <p class="error-message"><?php echo $errorMsg; ?></p>
@@ -106,13 +106,13 @@ unset($_SESSION['error']); // Limpe a mensagem de erro da sessão
                     <!-- Container para campos de entrada de nome, email, senha e confirmação de senha -->
                     <div class="form_input_container">
                         <!-- Campo de entrada para o nome -->
-                        <input type="text" class="form_input" placeholder="Nome" name="nome">
+                        <input type="text" class="form_input" placeholder="Nome" name="nome" id="nome">
                         <!-- Campo de entrada para o email -->
-                        <input type="email" class="form_input" placeholder="Email" name="email">
+                        <input type="email" class="form_input" placeholder="Email" name="email" id="email">
                         <!-- Campo de entrada para a senha -->
-                        <input type="password" class="form_input" placeholder="Senha" name="senha">
+                        <input type="password" class="form_input" placeholder="Senha" name="senha" id="senha">
                         <!-- Campo de entrada para a confirmação de senha -->
-                        <input type="password" class="form_input" placeholder="Confirmar Senha" name="confirmar_senha">
+                        <input type="password" class="form_input" placeholder="Confirmar Senha" name="confirmar_senha" id="confsenha">
                         <!-- Exibe mensagem de erro específica para o formulário de cadastro -->
                         <?php if (!empty($errorMsg) && isset($_GET['action']) && $_GET['action'] === 'cadastro'): ?>
                         <p class="error-message"><?php echo $errorMsg; ?></p>

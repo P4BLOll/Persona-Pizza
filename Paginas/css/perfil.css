@@ -10,18 +10,35 @@
   margin-top: -15rem;
 }
 .moldura {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   flex-shrink: 0;
   background-color: transparent;
-  padding: 1%;
   border-radius: 50%;
   display: flex;
+  border: 4px solid #000;
   background-color: #D9D9D9;
   justify-content: center;
   align-items: center;
+  margin-top: 8rem;
+}
+.elipse{
+  height: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
-  margin-top: 3rem;
+  position: relative;
+}
+.elipse::before{
+  content: '';
+  width: 1500px;
+  height: 1500px;
+  background: #C33633;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 70%;
 }
 
 .moldura img {
@@ -53,6 +70,111 @@
 #upload_form {
   display: none;
 }
-.elipse{
-  height: 70%;
+
+.container2 {
+  background-color: #191919;
+  border: 2px solid #000; /* Define a borda com 2 pixels de espessura e cor preta */
+  padding: 20px; /* Adiciona um espaçamento interno de 20 pixels */
+  text-align: center; /* Alinha o texto ao centro dentro do contêiner */
+  max-width: 300px; /* Define uma largura máxima para o contêiner */
+  margin-left: auto;
+  margin-right: auto;
+
 }
+.container1{
+  background-color: #191919;
+  border: 2px solid #000; /* Define a borda com 2 pixels de espessura e cor preta */
+  padding: 20px; /* Adiciona um espaçamento interno de 20 pixels */
+  text-align: center; /* Alinha o texto ao centro dentro do contêiner */
+  max-width: 300px; /* Define uma largura máxima para o contêiner */
+  max-height: 60px;
+  margin-top: 7rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container3{
+  
+  padding: 20px; /* Adiciona um espaçamento interno de 20 pixels */
+  text-align: center; /* Alinha o texto ao centro dentro do contêiner */
+  max-width: 100%; /* Define uma largura máxima para o contêiner */
+  max-height: 60px;
+
+}
+
+.content {
+  margin-bottom: 20px; /* Adiciona um espaçamento na parte inferior do conteúdo */
+}
+
+.Tdados {
+  margin-bottom: 10px; /* Adiciona um espaçamento na parte inferior dos elementos com a classe Tdados */
+}
+/* Estilos para os botões */
+.botao {
+  display: inline-block;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+
+}
+
+.botao a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #191919;
+}
+
+.botao a:hover {
+  background-color: #000;
+}
+
+/* Estilos para o formulário de envio de foto de perfil */
+#upload_form {
+  display: none; /* Oculta o formulário inicialmente */
+  text-align: center;
+}
+
+#upload_form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#upload_form input[type="file"] {
+  display: block;
+  margin: 0 auto;
+ 
+}
+#enviar{
+  display: block;
+  margin: 0 auto;
+ 
+}
+
+
+/* Estilos para o botão que exibe/oculta o formulário */
+#trocar_foto_btn {
+  background-color: #C33633;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+}
+
+#trocar_foto_btn:hover {
+  background-color: #9a2927;
+}
+

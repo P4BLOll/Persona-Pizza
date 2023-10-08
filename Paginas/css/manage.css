@@ -1,0 +1,62 @@
+:root{
+    --color-error: #FFD700;
+    --color-light: white;
+    --primary-color: #e73a39;
+    --primary-dark-color: #3b1010;
+    --secundary-color: #191919;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--secundary-color);
+    color: var(--color-light);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+div.post-container {
+    background-color: var(--color-light);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+p {
+    color: var(--primary-color);
+}
+
+img {
+    max-width: 300px;
+}
+
+form.inline-form {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+form.inline-form input[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--color-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form.inline-form input[type="submit"]:hover {
+    background-color: var(--primary-dark-color);
+}
+
+a.logout-link {
+    display: block;
+    color: var(--color-light);
+    text-align: center;
+    margin-top: 20px;
+}

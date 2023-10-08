@@ -1,12 +1,11 @@
 <?php
-// Inicia a sessão
 session_start();
 
-// Se o usuário não estiver logado, redireciona para a página de login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
+
 
 // Requer o arquivo de conexão com o banco de dados
 require 'conexao.php';
@@ -21,44 +20,50 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Verifica se o usuário é administrador
 $isAdmin = $user['is_admin'];
+
+// Processo de aprovação ou rejeição de postagem
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
+    $postID = $_POST['post_id'];
+    $statusAprovacao = isset($_POST['aprovar']) ? 1 : 0; // Se "aprovar" foi enviado, define como aprovado (1), senão, define como rejeitado (0)
+
+    $stmtAtualizarStatus = $PDO->prepare("UPDATE publicacoes SET aprovado = ? WHERE id = ?");
+    $stmtAtualizarStatus->execute([$statusAprovacao, $postID]);
+}
+
+// Listar postagens pendentes de aprovação
+$stmtPostsPendentes = $PDO->prepare("SELECT * FROM publicacoes WHERE aprovado = 0 ORDER BY data_publicacao DESC");
+$stmtPostsPendentes->execute();
+$postsPendentes = $stmtPostsPendentes->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Gerenciar Posts</title>
+    <link rel="stylesheet" href="css/manage.css" />
 </head>
 <body>
     <h1>Gerenciar Posts, <?php echo $user['nome']; ?>!</h1>
 
     <!-- Exibe postagens existentes com opções de edição e exclusão -->
-    <?php
-    // Prepara uma consulta para obter todas as postagens, ordenadas pela data de publicação
-    $stmtPosts = $PDO->prepare("SELECT * FROM publicacoes ORDER BY data_publicacao DESC");
-    $stmtPosts->execute();
-    $posts = $stmtPosts->fetchAll(PDO::FETCH_ASSOC);
+    <?php foreach ($postsPendentes as $postPendente): ?>
+        <div>
+            <p><?= $postPendente['conteudo'] ?> - Publicado em <?= $postPendente['data_publicacao'] ?></p>
 
-    foreach ($posts as $post) {
-        echo "<div>";
-        echo "<p>{$post['conteudo']} - Publicado em {$post['data_publicacao']}</p>";
+            <!-- Exibir a imagem, se disponível -->
+            <?php if (!empty($postPendente['imagem'])): ?>
+                <img src="<?= $postPendente['imagem'] ?>" alt="Imagem da postagem" style="max-width: 300px;">
+            <?php endif; ?>
 
-        // Exibe a imagem da postagem, se estiver disponível
-        if (!empty($post['imagem'])) {
-            echo "<img src='{$post['imagem']}' alt='Imagem da postagem' style='max-width: 300px;'>";
-        }
-
-        // Verifica se o usuário é administrador ou dono da postagem para exibir opções de edição e exclusão
-        if ($isAdmin || $post['id_usuario'] === $userID) {
-            echo "<p><a href='edit_post.php?post_id={$post['id']}'>Editar</a>
-                  <a href='delete_post.php?post_id={$post['id']}'>Deletar</a> | 
-                  <form method='post' style='display: inline-block;'>";
-
-            // Aqui, você poderia incluir um botão de "Salvar" para salvar as edições na postagem, se necessário
-        }
-
-        echo "</div>";
-    }
-    ?>
-
+            <!-- Adicionar botões para aprovar ou rejeitar a postagem -->
+            <form method="post" style="display: inline-block;">
+                <input type="hidden" name="post_id" value="<?= $postPendente['id'] ?>">
+                <input type="submit" name="aprovar" value="Aprovar">
+            </form>
+        </div> 
+    <?php endforeach; ?>
+    <div>
+            <a href="admin_dashboard.php">Sair</a>
+        </div>
 </body>
 </html>

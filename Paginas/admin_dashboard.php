@@ -19,22 +19,26 @@ $isAdmin = $user['is_admin'];
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" href="css/adm.css" />
 </head>
+
 <body>
     <h1>Bem-vindo ao Dashboard, <?php echo $user['nome']; ?>!</h1>
 
     <!-- Display options for managing posts or other actions -->
-    <?php if ($isAdmin): ?>
+    <?php if ($isAdmin) : ?>
         <ul>
             <li><a href="manage_posts.php">Gerenciar Posts</a></li>
             <li><a href="other_actions.php">Outras Ações</a></li>
+            </form>
         </ul>
-    <?php else: ?>
+    <?php else : ?>
         <p>Você não tem permissão para acessar esta página.</p>
     <?php endif; ?>
 
 </body>
-</html>
 
+</html>

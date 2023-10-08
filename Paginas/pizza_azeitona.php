@@ -39,7 +39,7 @@ exit();
                     <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                     <button type="submit" name="adicionar_carrinho">Adicionar ao carrinho</button>
                 </form>
-                <button>Personalizar</button>
+                <button href="criarpizza/personalizar/index.php">Personalizar</button>
             </div>
         </div>
     </div>

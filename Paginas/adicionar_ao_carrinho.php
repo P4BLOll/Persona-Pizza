@@ -12,4 +12,3 @@ if(isset($_POST['adicionar_carrinho'])) {
 
     header('Location: carrinho.php');
 }
-?>
