@@ -15,12 +15,11 @@
   flex-shrink: 0;
   background-color: transparent;
   border-radius: 50%;
-  display: flex;
   border: 4px solid #000;
   background-color: #D9D9D9;
   justify-content: center;
   align-items: center;
-  margin-top: 8rem;
+  margin-top: 2rem;
 }
 .elipse{
   height: 60%;
@@ -66,11 +65,22 @@
 .foto_perfil:hover .trocar_foto_btn {
   display: block;
 }
-
-#upload_form {
-  display: none;
+.foto_perfil{
+  object-fit: cover;
 }
+/* #upload_form {
+  display: none;
+} */
 
+#upload_form{
+  width:5rem;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  background-color: #C33633;
+  border-radius: 100%;
+  border: 1px solid #000;
+}
 .container2 {
   background-color: #191919;
   border: 2px solid #000; /* Define a borda com 2 pixels de espessura e cor preta */
@@ -134,31 +144,12 @@
   background-color: #000;
 }
 
-/* Estilos para o formulário de envio de foto de perfil */
-#upload_form {
-  display: none; /* Oculta o formulário inicialmente */
-  text-align: center;
+#foto_perfil{
+  display: none;
 }
-
-#upload_form label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-#upload_form input[type="file"] {
-  display: block;
-  margin: 0 auto;
- 
-}
-#enviar{
-  display: block;
-  margin: 0 auto;
- 
-}
-
 
 /* Estilos para o botão que exibe/oculta o formulário */
-#trocar_foto_btn {
+/* '#trocar_foto_btn {
   background-color: #C33633;
   border: none;
   color: white;
@@ -176,5 +167,4 @@
 
 #trocar_foto_btn:hover {
   background-color: #9a2927;
-}
-
+} */

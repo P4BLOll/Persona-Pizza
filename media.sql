@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Set-2023 às 20:18
+-- Tempo de geração: 15-Out-2023 às 23:20
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -20,29 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `media`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `carrinho`
---
-
-CREATE TABLE `carrinho` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `pizza_id` int(11) DEFAULT NULL,
-  `quantidade` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `carrinho`
---
-
-INSERT INTO `carrinho` (`id`, `user_id`, `pizza_id`, `quantidade`) VALUES
-(3, 16, 1, NULL),
-(4, 16, 1, NULL),
-(5, 16, 7, NULL),
-(6, 16, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -69,14 +46,6 @@ CREATE TABLE `curtidas` (
   `id_usuario` int(11) NOT NULL,
   `id_publicacao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `curtidas`
---
-
-INSERT INTO `curtidas` (`id`, `id_usuario`, `id_publicacao`) VALUES
-(3, 13, 18),
-(4, 13, 19);
 
 -- --------------------------------------------------------
 
@@ -113,18 +82,9 @@ CREATE TABLE `publicacoes` (
   `id_usuario` int(11) NOT NULL,
   `conteudo` text NOT NULL,
   `data_publicacao` timestamp NOT NULL DEFAULT current_timestamp(),
-  `imagem` blob DEFAULT NULL
+  `imagem` blob DEFAULT NULL,
+  `aprovado` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `publicacoes`
---
-
-INSERT INTO `publicacoes` (`id`, `id_usuario`, `conteudo`, `data_publicacao`, `imagem`) VALUES
-(16, 9, 'posto errado\r\n', '2023-08-23 06:05:35', NULL),
-(17, 13, 'asasd', '2023-09-17 18:26:18', NULL),
-(18, 13, 'ola\r\n', '2023-09-17 18:26:29', 0x696d672f436170747572612064652074656c6120323032332d30332d3037203231323135322e706e67),
-(19, 13, '', '2023-09-17 18:31:28', 0x696d672f436170747572612064652074656c6120323032332d30332d3235203136313633392e706e67);
 
 -- --------------------------------------------------------
 
@@ -147,23 +107,12 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `pontos_pizza`, `foto_perfil`, `is_admin`) VALUES
-(8, 'Ricardo Luquetti Codo', 'codor417@gmail.com', '$2y$10$tIUXedsJT1dhqsIe0wvZcuS4h5l1FSWMARstJSEG80G/ZHY8.0RHu', 0, 0x696d672f50697a7a612076656765746169732c2064652063696d612e706e67, 0),
 (9, 'Adm_Default', 'Adm_Deafult@gmail.com', '$2y$10$F1ui9NVyBKAvGw8N1dVJFu25OV0lI2maPkQr/e3sC8RBCTCrNmVIO', 0, NULL, 1),
-(12, 'Shirahoshi', 'ami@gmail.com', '$2y$10$VcHhOWjSGaGK8C1cdRpa9uwfK.tX8jGI1PG.fRZICbcVJ2mtpFcEO', 0, NULL, 0),
-(13, 'João Silva Santos', 'j@gmail.com', '$2y$10$8JHCqBH2bFYbGJHmYe4vkOj4atpv5rY7wnunSRuncLrPyBO3Vlq4G', 0, NULL, 0),
-(16, 'a', 'a@gmail.com', '$2y$10$0.CagdMoZmrE1bMSR4xFmuH5ycPUZAfgmmO63OYMjkUZ1IjFhjf8O', 0, NULL, 0);
+(16, 'a', 'a@gmail.com', '$2y$10$0.CagdMoZmrE1bMSR4xFmuH5ycPUZAfgmmO63OYMjkUZ1IjFhjf8O', 0, 0x696d672f466f746f5f50657266696c2e6a7067, 0);
 
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices para tabela `carrinho`
---
-ALTER TABLE `carrinho`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `pizza_id` (`pizza_id`);
 
 --
 -- Índices para tabela `comentarios`
@@ -205,12 +154,6 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de tabela `carrinho`
---
-ALTER TABLE `carrinho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT de tabela `comentarios`
 --
 ALTER TABLE `comentarios`
@@ -220,7 +163,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de tabela `curtidas`
 --
 ALTER TABLE `curtidas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `pizzas`
@@ -232,24 +175,17 @@ ALTER TABLE `pizzas`
 -- AUTO_INCREMENT de tabela `publicacoes`
 --
 ALTER TABLE `publicacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restrições para despejos de tabelas
 --
-
---
--- Limitadores para a tabela `carrinho`
---
-ALTER TABLE `carrinho`
-  ADD CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `carrinho_ibfk_2` FOREIGN KEY (`pizza_id`) REFERENCES `pizzas` (`id`);
 
 --
 -- Limitadores para a tabela `comentarios`

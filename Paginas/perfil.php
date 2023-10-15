@@ -48,79 +48,89 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/perfil.css">
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+
 </head>
 
 <body>
-     <!-- navbaar -->
-   <?php include("nav.php") ?>
+    <!-- navbar -->
+    <?php include("nav.php") ?>
 
-   <div class="elipse">
-    <!-- <img src="img/Ellipse 50.svg" alt=""> -->
+    <div class="elipse">
+        <!-- <img src="img/Ellipse 50.svg" alt=""> -->
     </div>
     <h1 class="name_u">Bem Vindo, <?php echo $user['nome']; ?></h1>
     <?php if (!empty($user['foto_perfil'])) : ?>
     <div class="foto_perfil">
         <div class="moldura">
             <img class="foto" src="<?php echo $user['foto_perfil']; ?>" alt="Foto de Perfil">
+            <div id="upload_form">
+                <form action="perfil.php" method="POST" enctype="multipart/form-data" id="upload_form">
+                    <input type="file" name="foto_perfil" id="foto_perfil">
+                    <label for="foto_perfil" class="anexar">
+                        <lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
+                            colors="primary:#000000,secondary:#000000,tertiary:#ffffff,quaternary:#ffffff,quinary:#ffffff"
+                            state="hover-1" style="width:70px;height:70px"></lord-icon>
+                    </label>
+                    <button type="submit" id="submit_button_hidden" style="display: none;"></button>
+                </form>
+            </div>
         </div>
     </div>
-<?php else : ?>
+    <?php else : ?>
     <div class="foto_perfil">
         <div class="moldura">
             <img class="foto" src="img/default_profile.png" alt="Foto de Perfil Padrão">
+            <div id="upload_form">
+                <form action="perfil.php" method="POST" enctype="multipart/form-data" id="upload_form">
+                    <input type="file" name="foto_perfil" id="foto_perfil">
+                    <label for="foto_perfil" class="anexar">
+                        <lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
+                            colors="primary:#000000,secondary:#000000,tertiary:#ffffff,quaternary:#ffffff,quinary:#ffffff"
+                            state="hover-1" style="width:70px;height:70px"></lord-icon>
+                    </label>
+                    <button type="submit" id="submit_button_hidden" style="display: none;"></button>
+                </form>
+            </div>
         </div>
     </div>
-<?php endif; ?>
+    <?php endif; ?>
     <!-- Exibe informações do usuário -->
     <div class="container1">
-    <p class="Tdados"><strong>Dados Pessoais</strong></p>
+        <p class="Tdados"><strong>Dados Pessoais</strong></p>
     </div>
     <div class="container2">
-    <p class="Tdados"><strong>Nome:</strong> <?php echo $user['nome']; ?></p>
-    <p class="Tdados"><strong>Email:</strong> <?php echo $user['email']; ?></p>
+        <p class="Tdados"><strong>Nome:</strong> <?php echo $user['nome']; ?></p>
+        <p class="Tdados"><strong>Email:</strong> <?php echo $user['email']; ?></p>
     </div>
-    
 
     <div class="container3">
-    <button id="trocar_foto_btn">Trocar Foto de Perfil</button>
-    <!-- Formulário para envio de nova foto de perfil -->
-    <div id="upload_form">
-        <form action="perfil.php" method="POST" enctype="multipart/form-data">
-            <label for="foto_perfil">Escolha uma foto de perfil:</label>
-            <input type="file" name="foto_perfil" id="foto_perfil">
-            <input type="submit" id="enviar" value="Enviar Foto">
-        </form>
-    </div>
-    
-    <!-- Script para alternar a exibição do formulário de upload de foto -->
-    <script>
-        const trocarFotoBtn = document.getElementById('trocar_foto_btn');
-        const uploadForm = document.getElementById('upload_form');
-        let isFormVisible = false;
-        
-        trocarFotoBtn.addEventListener('click', () => {
-            if (isFormVisible) {
-                uploadForm.style.display = 'none';
-            } else {
-                uploadForm.style.display = 'block';
-            }
-            isFormVisible = !isFormVisible;
+        <!-- Formulário para envio de nova foto de perfil -->
+
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('foto_perfil').addEventListener('change', function() {
+                document.getElementById('submit_button_hidden')
+                    .click(); // Aciona o clique no botão invisível
+            });
         });
-    </script>
-    <!-- Links para sair, página de rede social e página de produto -->
-    <button class="botao"><p ><a href="logout.php">Sair</a></p></button>
+        </script>
+
+
+        <!-- Links para sair, página de rede social e página de produto -->
+        <button class="botao">
+            <p><a href="logout.php">Sair</a></p>
+        </button>
     </div>
 </body>
+
 </html>
-
-
