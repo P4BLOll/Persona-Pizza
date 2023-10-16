@@ -472,7 +472,7 @@ main .funcionalidades .icons {
 }
 .imgP img{
   position: absolute;
-  width: 20rem;
+  width: 0rem;
 }
 /* Estilos para a seção "Cardapio" */
 .Cardapio h1  {
@@ -513,15 +513,15 @@ main .funcionalidades .icons {
   gap: 30px;
 }
 
-.Cardapio .card::after {
+/* .Cardapio .card::after {
   content: '';
   height: 150px;
   width: 2px;
   background: #942a29;
   position: absolute;
-  transform: translateX(20px);
+  transform: translateX(-20px);
   border-radius: 10px;
-}
+} */
 
 .Cardapio .card {
   width: 400px;
@@ -539,34 +539,35 @@ main .funcionalidades .icons {
 .card .text {
   display: flex;
   flex-direction: column;
+  border-left: #C33633 2px solid;
+  padding:.5rem;
 }
 
-.card .text p {
+.card .text > p {
   font-weight: 300;
   font-size: 18px;
 }
-
-.card .text h2 {
-  font-family: 'Brandier';
+.card .estrelas > p{
+  font-weight: 100;
+  color: gold;
+  font-weight: bold;
 }
-
-/* Estilos para as estrelas de avaliação */
-.estrelas input[type=radio] {
-  display: none;
+.card .estrelas{
+  display: flex;
+  gap: .4rem;
+  font-size: 15px;
+  width: 3rem;
+  padding: auto;
+  background: #3E3636;
+  border-radius: 5px;
+  justify-content: center;
 }
-
-.estrelas label i.fa {
-  font-size: 20px;
-  font-style: normal;
-}
-
-.estrelas label i.fa:before {
-  content: '\2605';
-  color: #FC0;
-}
-
-.estrelas input[type=radio]:checked ~ label i.fa:before {
-  color: #CCC;
+.bxs-star:before{
+  color: gold;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .Cardapio .card .btns {
@@ -607,7 +608,7 @@ main .funcionalidades .icons {
 
 .Cardapio .card .img {
   width: 200px;
-  height: 200px;
+  height:200px;
   z-index: 1;
   position: relative;
 }

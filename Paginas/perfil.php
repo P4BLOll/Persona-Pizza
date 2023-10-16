@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
         <div class="moldura">
             <img class="foto" src="<?php echo $user['foto_perfil']; ?>" alt="Foto de Perfil">
             <div id="upload_form">
-                <form action="perfil.php" method="POST" enctype="multipart/form-data" id="upload_form">
+                <form action="perfil.php" method="POST" enctype="multipart/form-data" class="border"id="upload_form">
                     <input type="file" name="foto_perfil" id="foto_perfil">
                     <label for="foto_perfil" class="anexar">
                         <lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"

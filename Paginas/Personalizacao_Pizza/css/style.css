@@ -1,39 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  width: 100vw;
-  height: 90vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
   background-color: #4a4a4a;
 }
 
 .container {
-  box-shadow: 15px 20px 10px rgba(19, 19, 19, 0.411);
-  width: 650px;
+  box-shadow: 20px 25px 15px rgba(19, 19, 19, 0.411);
+  width: 80%;
   background-color: #1c1c1c;
   border-radius: 8px;
   padding: 10px;
-  height: 600px;
+  height: 680px; 
+  margin-bottom: -50px;
 }
 
-.content{
-    margin-top: 20px;
+.icon {
+  color: #1c1c1c;
+  user-select: none;
 }
 
 .accordion_header {
   padding: 13px;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
 }
 
 .accordion_content {
@@ -42,118 +45,91 @@ body {
   overflow: hidden;
   height: 0;
   transition: all .5s ease;
-  font-size: 14px;
+  z-index: 2;
+  position: relative;
 
 }
 
-.active {
-  padding-bottom: 10px;
+.accordion_item{
+    bottom: -5px;
 }
 
-
-input[type="radio"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 5px; 
-    outline: none;
-    cursor: pointer;
-    background-color: white;
-    margin-right: 15px;
-    margin-top: 6px;
+.label {
+    margin: 10px;
+    font-size: 18px;
+    color: white;
+    user-select: none;
 }
-
-input[type="radio"]:checked {
-    background-color: #d9534f; 
-}
-
 
 .panel {
     background-color: #4a423d; 
     border-radius: 10px; 
-    padding: 5px; 
-    margin-bottom: 10px; 
-    width: 300px;
+    margin-bottom: 10px;
+    padding: 2px; 
     margin-top: 20px;
     height: 115px;
 }
 
 .panel label{
-    margin-left: 50px;
+    margin-left: 40px;
     top: 10px;
 
 }
-
-
-.red-button {
-    background-color: #FF0000; 
-    color: white; 
-    border: none; 
-    padding: 10px 80px; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    position: absolute; 
-    margin-top: 500px; 
-    z-index: 1;
-}
-
-
-.red-button:hover {
-    background-color: #FF3333; 
-}
-
-.accordion_item {
-    border-radius: 5px;
-    margin-bottom: 15px; 
-    
-}
-
-.accordion_item hr{
-    border-bottom: 1px solid #ccc;
-    width: 610px;
-    opacity: 70%;
-    margin-left: 5px;
-    
-}
-
-
-.accordion_item:last-child {
-    margin-bottom: 0;
-}
-
-.title {
-    font-size: 20px;
-    color: #ffff;
-}
-
-.bullet {
+.alinhamento {
     display: inline-block;
-    width: 25px;
-    height: 25px;
-    border: 2px solid #ffff;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 20px; 
-    color: #ffff;
-}
-
-
-.accordion_item {
-    position: relative;
-}
-
-.accordion_content {
-    position: relative;
 }
 
 .vertical-line {
     position: absolute;
     width: 8px; 
-    background-color: red; 
+    background-color: #FF0000; 
     height: 90px; 
     border-radius: 3px;
     left: 20px; 
     top: 30px;
+}
+
+.linha{
+    border-bottom: 5px solid #FF0000 ;
+    margin-left: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+    opacity: 80%;
+}
+
+/* Estilos gerais para tornar o site responsivo */
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+  }
+
+  .accordion_content {
+      margin: 0;
+  }
+
+  .accordion_header {
+      padding: 10px;
+  }
+
+  .alinhamento {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .recheio-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .borda-container {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+/* Estilos específicos para telas menores (se necessário) */
+@media (max-width: 576px) {
+  .container {
+      width: 100%;
+  }
 }

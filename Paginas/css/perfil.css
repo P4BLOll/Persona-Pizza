@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 .name_u{
   display: flex;
@@ -20,6 +21,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
+  position: relative;
 }
 .elipse{
   height: 60%;
@@ -59,7 +61,8 @@
   display: none;
   margin-left: auto;
   margin-right: auto;
-  width: 6em
+  width: 6em;
+  right: 0;
 }
 
 .foto_perfil:hover .trocar_foto_btn {
@@ -68,9 +71,7 @@
 .foto_perfil{
   object-fit: cover;
 }
-/* #upload_form {
-  display: none;
-} */
+
 
 #upload_form{
   width:5rem;
@@ -79,7 +80,14 @@
   justify-content: center;
   background-color: #C33633;
   border-radius: 100%;
-  border: 1px solid #000;
+ align-items: center;
+  right: 0%;
+  bottom: 0;
+  position: absolute;
+  transform: rotate(20deg);
+}
+.border{
+  border: #000 solid 2px;
 }
 .container2 {
   background-color: #191919;
