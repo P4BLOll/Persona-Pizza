@@ -1,0 +1,14 @@
+.titulo{
+    color: #e8e8e8;
+    font-size: 35px;
+    margin-top: 2px;
+    text-align: center;
+    user-select: none;
+}
+
+.title{
+    font-size: 30px;
+    color: #e8e8e8;
+    text-align: center;
+    user-select: none;
+}

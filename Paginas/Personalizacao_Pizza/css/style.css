@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4a4a4a;
+}
+
+.container {
+  box-shadow: 20px 25px 15px rgba(19, 19, 19, 0.411);
+  width: 80%;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  padding: 10px;
+  height: 680px; 
+  margin-bottom: -50px;
+}
+
+.icon {
+  color: #1c1c1c;
+  user-select: none;
+}
+
+.accordion_header {
+  padding: 13px;
+  cursor: pointer;
+  display: flex;
+}
+
+.accordion_content {
+  margin-left: 50px;
+  margin-right: 15px;
+  overflow: hidden;
+  height: 0;
+  transition: all .5s ease;
+  z-index: 2;
+  position: relative;
+
+}
+
+.accordion_item{
+    bottom: -5px;
+}
+
+.label {
+    margin: 10px;
+    font-size: 18px;
+    color: white;
+    user-select: none;
+}
+
+.panel {
+    background-color: #4a423d; 
+    border-radius: 10px; 
+    margin-bottom: 10px;
+    padding: 2px; 
+    margin-top: 20px;
+    height: 115px;
+}
+
+.panel label{
+    margin-left: 40px;
+    top: 10px;
+
+}
+.alinhamento {
+    display: inline-block;
+}
+
+.vertical-line {
+    position: absolute;
+    width: 8px; 
+    background-color: #FF0000; 
+    height: 90px; 
+    border-radius: 3px;
+    left: 20px; 
+    top: 30px;
+}
+
+.linha{
+    border-bottom: 5px solid #FF0000 ;
+    margin-left: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+    opacity: 80%;
+}
+
+/* Estilos gerais para tornar o site responsivo */
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+  }
+
+  .accordion_content {
+      margin: 0;
+  }
+
+  .accordion_header {
+      padding: 10px;
+  }
+
+  .alinhamento {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .recheio-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .borda-container {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+/* Estilos específicos para telas menores (se necessário) */
+@media (max-width: 576px) {
+  .container {
+      width: 100%;
+  }
+}

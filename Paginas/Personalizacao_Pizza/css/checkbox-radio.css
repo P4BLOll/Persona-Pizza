@@ -1,0 +1,92 @@
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    margin-right: 3px;
+    margin-top: 8px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #FF0000;
+
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    margin-right: 3px;
+    margin-top: 10px;
+}
+
+input[type="radio"]:checked {
+    background-color: #FF0000;
+}
+
+/*massa*/
+.alinhamento {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox-group {
+    width: 40%;
+    /* Ajuste a largura conforme necessário */
+}
+
+#massa6 {
+    margin-left: 20px;
+}
+
+#massa5 {
+    margin-left: 24px;
+}
+
+#massa4 {
+    margin-left: 22px;
+}
+
+/*molho*/
+.alinhamento {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio-group {
+    width: 45%;
+}
+
+/*recheio*/
+.recheio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.recheio-group {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+/*borda*/
+.borda-container {
+    display: flex;
+}
+
+.borda-option {
+    display: inline-block;
+    margin-right: 20px;
+}
