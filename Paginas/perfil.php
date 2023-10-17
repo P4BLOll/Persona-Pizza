@@ -30,6 +30,14 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name'])) {
     $photoTmpPath = $_FILES['foto_perfil']['tmp_name'];
     $photoName = $_FILES['foto_perfil']['name'];
+    $photoType = $_FILES['foto_perfil']['type'];
+    
+    // Verifica se o arquivo é uma imagem
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    if (!in_array($photoType, $allowedTypes)) {
+        echo "Apenas arquivos de imagem são permitidos.";
+        exit();
+    }
     
     // Define o caminho para a nova foto de perfil
     $newPhotoPath = 'img/' . $photoName;
@@ -44,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     // Atualiza a variável $user com o novo caminho da foto
     $user['foto_perfil'] = $newPhotoPath;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -72,13 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     <div class="foto_perfil">
         <div class="moldura">
             <img class="foto" src="<?php echo $user['foto_perfil']; ?>" alt="Foto de Perfil">
-            <div id="upload_form">
-                <form action="perfil.php" method="POST" enctype="multipart/form-data" class="border"id="upload_form">
-                    <input type="file" name="foto_perfil" id="foto_perfil">
+            <div class="upload_form">
+                <form action="perfil.php" method="POST" enctype="multipart/form-data" id="upload_form">
+                <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
                     <label for="foto_perfil" class="anexar">
-                        <lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
+                        <lord-icon class="lapis" src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
                             colors="primary:#000000,secondary:#000000,tertiary:#ffffff,quaternary:#ffffff,quinary:#ffffff"
-                            state="hover-1" style="width:70px;height:70px"></lord-icon>
+                            state="hover-1"></lord-icon>
                     </label>
                     <button type="submit" id="submit_button_hidden" style="display: none;"></button>
                 </form>
@@ -89,13 +98,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     <div class="foto_perfil">
         <div class="moldura">
             <img class="foto" src="img/default_profile.png" alt="Foto de Perfil Padrão">
-            <div id="upload_form">
+            <div class="upload_form">
                 <form action="perfil.php" method="POST" enctype="multipart/form-data" id="upload_form">
-                    <input type="file" name="foto_perfil" id="foto_perfil">
+                <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
                     <label for="foto_perfil" class="anexar">
-                        <lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
+                        <lord-icon class="lapis" src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
                             colors="primary:#000000,secondary:#000000,tertiary:#ffffff,quaternary:#ffffff,quinary:#ffffff"
-                            state="hover-1" style="width:70px;height:70px"></lord-icon>
+                            state="hover-1"></lord-icon>
                     </label>
                     <button type="submit" id="submit_button_hidden" style="display: none;"></button>
                 </form>

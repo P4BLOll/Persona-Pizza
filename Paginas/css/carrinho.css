@@ -1,19 +1,18 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #1b1717;
+    background-color: #191919;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
 .container {
     max-width: 800px;
-    margin:auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
+    margin-top: 3rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: all .2s ease-in;
 }
 
 .carrinho-item {
@@ -52,7 +51,14 @@ body {
     text-decoration: none; 
     
 }
-
+.botoes button:hover {
+    background: #942a29;
+    transition: all .2s ease-in;
+}
+.botoes a:hover {
+    background: #942a29;
+    transition: all .2s ease-in;
+}
 .btn-excluir {
     background-color: #ff4136;
     color: #fff;
@@ -64,5 +70,25 @@ body {
 }
 
 .btn-excluir:hover {
-    background-color: #e50000;
+    background: #942a29;
+    transition: all .2s ease-in;
+}
+
+.sair{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    gap: 9px;
+    background-color: #C33633;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.sair:hover {
+    background: #942a29;
+    transition: all .2s ease-in;
 }

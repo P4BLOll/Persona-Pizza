@@ -14,8 +14,6 @@ if (isset($_SESSION['user_id'])) {
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
@@ -89,7 +87,7 @@ if (isset($_SESSION['user_id'])) {
               <div class="btns">
                 <a href="pizza_peperoni.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="7"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                  <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
                     <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
                     </lord-icon>
@@ -164,7 +162,7 @@ if (isset($_SESSION['user_id'])) {
               <div class="btns">
                 <a href="pizza_peperoni.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                  <input type="hidden" name="pizza_id" value="7"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
                     <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
                     </lord-icon>

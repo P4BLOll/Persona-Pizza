@@ -18,9 +18,13 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="css/carrinho.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+    
 </head>
 
 <body>
+
+    <button class="sair" onclick="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+
     <div class="container">
         <form method="post" action="atualizar_carrinho.php">
             <div class="carrinho-itens">
@@ -42,12 +46,8 @@ if (!isset($_SESSION['user_id'])) {
                                 <p>Preço por unidade: R$<span class="preco-unitario"><?= number_format($pizza['preco'], 2, ',', '.') ?></span></p>
                                 <input type="number" class="quantidade" name="quantidade[<?= $pizza['id'] ?>]" value="<?= $quantidade ?>" min="1">
                                 <p>Preço total: R$<span class="preco-total"><?= number_format(($pizza['preco'] * $quantidade), 2, ',', '.') ?></span></p>
-                                <button type="submit" class="btn-excluir" onclick="removerPizza(<?= $pizza_id ?>)"><lord-icon
-    src="https://cdn.lordicon.com/skkahier.json"
-    trigger="hover"
-    colors="primary:#ffffff"
-    style="width:1.2rem;height:1.2rem">
-</lord-icon></button>
+                                <button type="submit" class="btn-excluir" onclick="removerPizza(<?= $pizza_id ?>)"><lord-icon src="https://cdn.lordicon.com/skkahier.json" trigger="hover" colors="primary:#ffffff" style="width:1.2rem;height:1.2rem">
+                                    </lord-icon></i></button>
                             </div>
                 <?php
                             $total += $pizza['preco'] * $quantidade;
@@ -87,7 +87,7 @@ if (!isset($_SESSION['user_id'])) {
         }
     });
 
-        function removerPizza(pizzaId) {
+    function removerPizza(pizzaId) {
         fetch('remover_pizza_carrinho.php', {
             method: 'POST',
             headers: {
@@ -99,6 +99,9 @@ if (!isset($_SESSION['user_id'])) {
         });
     }
 
+    function goBack() {
+        window.history.back();
+    }
 </script>
 
 </html>

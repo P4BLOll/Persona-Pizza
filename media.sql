@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Out-2023 às 23:20
+-- Tempo de geração: 17-Out-2023 às 03:25
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -20,20 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `media`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `comentarios`
---
-
-CREATE TABLE `comentarios` (
-  `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_publicacao` int(11) NOT NULL,
-  `texto_comentario` text NOT NULL,
-  `data_comentario` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -108,19 +94,12 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `pontos_pizza`, `foto_perfil`, `is_admin`) VALUES
 (9, 'Adm_Default', 'Adm_Deafult@gmail.com', '$2y$10$F1ui9NVyBKAvGw8N1dVJFu25OV0lI2maPkQr/e3sC8RBCTCrNmVIO', 0, NULL, 1),
-(16, 'a', 'a@gmail.com', '$2y$10$0.CagdMoZmrE1bMSR4xFmuH5ycPUZAfgmmO63OYMjkUZ1IjFhjf8O', 0, 0x696d672f466f746f5f50657266696c2e6a7067, 0);
+(16, 'a', 'a@gmail.com', '$2y$10$0.CagdMoZmrE1bMSR4xFmuH5ycPUZAfgmmO63OYMjkUZ1IjFhjf8O', 0, 0x696d672f6d69646e696768742d676f7370656c2d756d612d76696167656d2d616f2d657374696c6f2d7269636b2d616e642d6d6f7274795f353835322e6a7067, 0),
+(21, 'Julia Silva', 'Ju@gmail.com', '$2y$10$K8vVsbbavqcViz2Flor8se9bbPn/e3xIV8jNUy/T.znCYxqRPRvA.', 0, NULL, 0);
 
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices para tabela `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_publicacao` (`id_publicacao`);
 
 --
 -- Índices para tabela `curtidas`
@@ -154,12 +133,6 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de tabela `comentarios`
---
-ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `curtidas`
 --
 ALTER TABLE `curtidas`
@@ -181,18 +154,11 @@ ALTER TABLE `publicacoes`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restrições para despejos de tabelas
 --
-
---
--- Limitadores para a tabela `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`id_publicacao`) REFERENCES `publicacoes` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `curtidas`
