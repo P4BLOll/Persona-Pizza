@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="finalizacao.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="title">
+        <h1>Pagamento</h1>
+        <a href="">Voltar <i class="bx bx-left-arrow-alt"></i></a>
+      </section>
+      <section class="pagamento">
+        <div class="cep">
+          <div class="input_cep">
+            <input
+              name="cep"
+              type="text"
+              id="cep"
+              class="form-control"
+              size="10"
+              maxlength="9"
+              oninput="consultaCEP(this.value)"
+              placeholder="CEP"
+              max="_____-___"
+            />
+          </div>
+          <p id="cep-result">
+            <span id="logradouro"> </span> <span id="bairro"></span>
+            <span id="localidade"></span> <span id="uf"></span>
+          </p>
+        </div>
+        <!-- <section class="divisao"> <p>Forma de Pagamento</p> </section> -->
+       <section class="formas">
+
+        <dialog id="custom-dialog">
+            
+            <button id="close-button">
+                <lord-icon
+    src="https://cdn.lordicon.com/zxvuvcnc.json"
+    trigger="hover"
+    colors="primary:#ffffff"
+    style="width:20px;height:20px">
+</lord-icon>
+            </button>
+            
+            <div class="card">
+                <div class="credit-card">
+                  
+                        <div class="card-front">
+                      <input class="input  num" type="text"  name="" id="" max = "1111 1111 1111 1111" placeholder="1111 1111 1111 1111" >
+                      <div class="card-info">
+                        <input class="input nome" type="text" name="" id="" placeholder="Seu nome">
+                        <div class="data">
+                            <input class="input" type="number" name="" id="" placeholder="MM">/
+                            <input class="input" type="number" name="" id="" placeholder="AA">
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="card-back">
+                      <div class="stripe"><input class="input" type="text" placeholder="000"></div>
+                      
+                    </div>
+                    
+                    
+                  </div>
+                  <button id="flip-button">Vire</button>
+            </div>
+            
+            <div class="confirmacao">
+                <div class="info">
+                    <p>Sertifique-se os dados estão preenchidos corretamente</p>
+                </div>
+            </div>
+          </dialog>
+          
+          <button id="show-button">
+            <lord-icon
+    src="https://cdn.lordicon.com/xuyycdjx.json"
+    trigger="boomerang"
+    state="morph-card"
+    colors="primary:#ffffff"
+    style="width:20px;height:20px">
+</lord-icon>
+       
+          </button>
+       </section>  
+      </section>
+
+    </main>
+  </body>
+</html>
+<script>
+  function consultaCEP(cep) {
+    const removeNaoNumeros = /\D/g;
+    cep = cep.replace(removeNaoNumeros, "");
+
+    if (cep.length === 8) {
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then((response) => response.json())
+        .then((data) => {
+          const result = document.getElementById("cep-result");
+          result.style.opacity = "1";
+          result.classList.add("fade-in");
+
+          document.getElementById("logradouro").textContent = data.logradouro;
+          document.getElementById("bairro").textContent = data.bairro;
+          document.getElementById("localidade").textContent = data.localidade;
+          document.getElementById("uf").textContent = data.uf;
+        })
+        .catch((error) => {
+          console.log(`Erro: ${error}`);
+        });
+    } else {
+      const result = document.getElementById("cep-result");
+      result.style.opacity = "0";
+      result.style.transition = "all .2s ease-in-out";
+    }
+  }
+
+  const dialog = document.getElementById('custom-dialog');
+
+const showButton = document.getElementById('show-button');
+const closeButton = document.getElementById('close-button');
+
+showButton.addEventListener('click', () => {
+  dialog.style.display = 'block';
+  setTimeout(() => {
+    dialog.classList.add('show');
+    dialog.showModal();
+  }, 50);
+});
+
+closeButton.addEventListener('click', () => {
+  dialog.classList.remove('show');
+  setTimeout(() => {
+    dialog.close();
+    dialog.style.display = 'none';
+  }, 500);
+});
+
+const creditCard = document.querySelector('.credit-card');
+const flipButton = document.querySelector('#flip-button');
+
+flipButton.addEventListener('click', () => {
+  creditCard.classList.toggle('show-cvv');
+});
+</script>
