@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pagamento_style.css" />
+    <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+    <title>Pagamento</title>
+  </head>
+  <body>
+    <main>
+      <div class="title">
+        <h1>Pagamento</h1>
+      </div>
+      <section>
+        <div class="pagamento">
+          <div class="cep">
+            <div class="input_cep">
+            <input
+              name="cep"
+              type="text"
+              id="cep"
+              class="form-control"
+              size="10"
+              maxlength="9"
+              oninput="consultaCEP(this.value)"
+              placeholder="CEP"
+              max="_____-___"
+            />
+        </div>
+            <div>
+              <p id="cep-result">
+                <span id="logradouro"> </span> <span id="bairro"></span>
+                <span id="localidade"></span> <span id="uf"></span>
+              </p>
+            </div>
+          </div>
+          <div class="formas_pagamento">
+            <div class="text">
+                <p>Formas de Pagamento</h>
+                <div class="btns">
+                    <button id="btnA">Credito</button>
+                <button id="btnB">PIX</button>
+                </div>
+                
+            </div>
+          
+
+            <div class="box" id="divA">
+            
+              <span class="info">
+                <lord-icon
+                    src="https://cdn.lordicon.com/jnzhohhs.json"
+                    trigger="loop"
+                    delay="2000"
+                    colors="primary:#242424"
+                    style="width:20px;height:20px">
+                </lord-icon>
+                Informe seus dados do Cartão de Credito
+            </span>
+            
+            <div class="checkout-container" id="checkout-container">
+                <div class="checkout-form">
+                   
+                    <form>
+                        <label for="name">Nome Completo:</label>
+                        <input type="text" id="name" required>
+        
+        
+                        <label for="card-number">Número do Cartão:</label>
+                        <input type="text" id="card-number" required>
+        
+                        <div class="flex-row">
+                            <div class="flex-column">
+                                <label for="expiry">Data de Validade:</label>
+                                <input type="text" id="expiry" required>
+                            </div>
+                            <div class="flex-column">
+                                <label for="cvv">CVV:</label>
+                                <input type="text" id="cvv" required>
+                            </div>
+                        </div>
+        
+                        <button type="submit">Finalizar Compra</button>
+                    </form>
+                </div>
+            </div>
+            
+            </div>
+
+            <div class="box" id="divB">
+                <div class="pix-form-container">
+                    <h2>Pagamento com Pix</h2>
+                    <form>
+                        <label for="chave-pix">Chave Pix:</label>
+                        <input type="text" id="chave-pix" placeholder="Insira sua chave Pix" required>
+            
+                        <label for="valor">Valor:</label>
+                        <input type="number" id="valor" placeholder="R$ 0.00" required>
+            
+                        <label for="descricao">Descrição (opcional):</label>
+                        <input type="text" id="descricao" placeholder="Adicione uma descrição">
+            
+                        <button type="submit">Pagar com Pix</button>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script>
+    function consultaCEP(cep) {
+      const removeNaoNumeros = /\D/g;
+      cep = cep.replace(removeNaoNumeros, "");
+
+      if (cep.length === 8) {
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+          .then((response) => response.json())
+          .then((data) => {
+            const result = document.getElementById("cep-result");
+            result.style.display = "block";
+            result.classList.add("fade-in");
+
+            document.getElementById("logradouro").textContent = data.logradouro;
+            document.getElementById("bairro").textContent = data.bairro;
+            document.getElementById("localidade").textContent = data.localidade;
+            document.getElementById("uf").textContent = data.uf;
+          })
+          .catch((error) => {
+            console.log(`Erro: ${error}`);
+          });
+      } else {
+        const result = document.getElementById("cep-result");
+        result.style.display = "none";
+      }
+    }
+
+    //forma de pagamento
+
+    const btnA = document.getElementById('btnA');
+        const btnB = document.getElementById('btnB');
+        const divA = document.getElementById('divA');
+        const divB = document.getElementById('divB');
+
+        btnA.addEventListener('click', function () {
+            divA.classList.add('visible');
+            divB.classList.remove('visible');
+        });
+
+        btnB.addEventListener('click', function () {
+            divB.classList.add('visible');
+            divA.classList.remove('visible');
+        });
+        //form cartao
+        const checkoutContainer = document.getElementById("checkout-container");
+const checkoutForm = document.querySelector(".checkout-form");
+
+checkoutContainer.addEventListener("mousemove", (e) => {
+    const xAxis = (window.innerWidth / 2 - e.pageX) / 55;
+    const yAxis = (window.innerHeight / 2 - e.pageY) / 55;
+
+    checkoutForm.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
+
+checkoutContainer.addEventListener("mouseenter", () => {
+    checkoutForm.style.transition = "none";
+});
+
+checkoutContainer.addEventListener("mouseleave", () => {
+    checkoutForm.style.transition = "all 0.5s";
+    checkoutForm.style.transform = "rotateY(0deg) rotateX(0deg)";
+});
+  </script>
+</html>

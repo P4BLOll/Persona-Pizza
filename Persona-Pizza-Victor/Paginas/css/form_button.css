@@ -1,0 +1,19 @@
+.form_button{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-style: none;
+    border: 3px solid var(--primary-color);
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: .3s;
+    cursor: pointer;
+
+}
+
+.form_button:hover{
+    background-color: var(--primary-color);
+    color: var(--color-light);
+}
