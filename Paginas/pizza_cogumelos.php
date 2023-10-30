@@ -1,11 +1,20 @@
-<?php
+<?php    
 session_start();
-
+                
 if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php"); // Redireciona para a página de login se o usuário não estiver autenticado
-    exit();
+header("Location: index.php"); // Redireciona para a página de login se o usuário não estiver autenticado
+exit();
 }
+
+// Verifica se o usuário está logado
+if (isset($_SESSION['user_id'])) {
+    $isLoggedIn = true;
+  } else {
+    $isLoggedIn = false;
+  }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,32 +24,45 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produto</title>
     <link rel="stylesheet" href="css/produto.css">
+    <script src="js/nav-animacao.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="imgBx">
-            <img src="#" alt="Pizza de Cogumelo">
+
+    <nav class="navbar" id="navbar">
+        <?php include("nav.php") ?>
+    </nav>
+
+    <div class="container ajuste">
+        <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
+           <img src="img/Pizza de cogumelos, de cima.png" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Cogumelo<br>
-                    <span>(Tradicional)</span>
+                <h2>Pizza de Cogumelos<br>
+                    <span>(Especial)</span>
                 </h2>
                 <p>
-                    Aenean consequat elit libero, sed tincidunt mauris sodales ac. Nulla pulvinar sed odio a vulputate.
-                    Maecenas ac purus interdum, venenatis purus sed, sollicitudin massa.
+                A pizza de cogumelo é uma pizza que tem cogumelos como ingrediente principal. 
+                Ela geralmente inclui massa de pizza, molho de tomate, cogumelos fatiados, queijo e temperos. 
+                É uma opção saborosa para os amantes de cogumelos e pizza.    
                 </p>
                 <div class="preco">
-                    <h3>R$ 30,00</h3>
+                    <h3>R$ 26,00</h3>
                 </div>
             </div>
             <div class="botao">
                 <form action="adicionar_ao_carrinho.php" method="post">
-                    <input type="hidden" name="pizza_id" value="5"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                    <button type="submit" name="adicionar_carrinho">Adicionar ao carrinho</button>
+                    <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                    <div class="animacao">
+                      <button type="submit" name="adicionar_carrinho">Adicionar ao carrinho</button>
+                    </div>
                 </form>
-                <button>Personalizar</button>
+                <form action="Personalizacao_Pizza/index.php">
+                    <div class="animacao">
+                        <button>Personalizar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

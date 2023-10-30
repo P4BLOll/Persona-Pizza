@@ -35,19 +35,20 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+           <img src="img/Pizza_havaina.png" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Azeitona<br>
-                    <span>(Tradicional)</span>
+                <h2>Pizza Havaiana<br>
+                    <span>(Especial)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+                A pizza havaiana é uma combinação deliciosa de presunto e abacaxi,
+                criando um contraste único de sabores.Conhecida por sua mistura de sabor de
+                doce e salgada, proporcionando uma experiência gastronômica única.
                 </p>
                 <div class="preco">
-                    <h3>R$ 20,00</h3>
+                    <h3>R$ 21,50</h3>
                 </div>
             </div>
             <div class="botao">

@@ -35,19 +35,21 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+           <img src="img/pizza-chocolate-branco2.png" width="80%" height="100%" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Azeitona<br>
-                    <span>(Tradicional)</span>
+                <h2>Pizza Chocolate Branco<br>
+                    <span>(Especial)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+                A pizza de chocolate branco é uma tentação doce em forma de pizza. 
+                Uma combinação perfeita de uma massa crocante coberta com o luxo do chocolate branco derretido, 
+                é um deleite indulgente que conquista os amantes de doces. 
+                Cada mordida é uma celebração do sabor suave e doce do chocolate branco.
                 </p>
                 <div class="preco">
-                    <h3>R$ 20,00</h3>
+                    <h3>R$ 28,00</h3>
                 </div>
             </div>
             <div class="botao">

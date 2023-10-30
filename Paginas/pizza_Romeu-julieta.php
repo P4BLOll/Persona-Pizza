@@ -35,19 +35,20 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+           <img src="img/pizza-romeuEjulieta.png" width="80%" height="100%" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Azeitona<br>
+                <h2>Pizza Romeu e Julieta<br>
                     <span>(Tradicional)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+                A pizza Romeu e Julieta combina a suavidade do queijo minas coma doçura da goiabada,
+                criando uma explosão agridoce de sabores em cada pedaço. Uma homenagem à paixão inesquecível
+                de um dos casais mias icônicos da literatura.
                 </p>
                 <div class="preco">
-                    <h3>R$ 20,00</h3>
+                    <h3>R$ 23,50</h3>
                 </div>
             </div>
             <div class="botao">

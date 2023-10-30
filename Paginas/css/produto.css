@@ -9,42 +9,89 @@ body {
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     background: #191919;
+    overflow-x: hidden;
 }
 
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0f0f0f; /* Estilo de fundo quando escondido */
+  }
 
+/* containers*/
 .container {
     position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background: #3E3636;
     width: 1500px;
     height: 600px;
-    background: #3E3636;
-    margin: 20px;
+     margin: 100px 20px 20px;
     border-radius: 2rem;
+    flex: 1;
+    animation: entradaSite 1s ease-in-out;
 }
 
-.container .imgBx {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-    background: #EEEBDD;
-    ;
-    transition: .3s linear;
-    border-radius: 2rem;
-    box-shadow: 12px 0 10px rgba(0,0,0,0.3);
-   
+@keyframes entradaSite {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+/*Animção da rotação imagem*/
+@keyframes girarImagem {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-4deg);
+    }
+}
+  
+  .container .imgBx {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+      border-radius: 2.5rem;
+      box-shadow: 12px 0 10px rgba(0,0,0,0.3);
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* Aplica a animação */
+      animation: animacaoFundo 5s linear infinite;
+      animation: floatAnimation 4s ease-in-out infinite; 
+      /* Transição */
+      transition: .5s linear;
+  }
+
+  @keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /*A altura máxima da flutuação */
+    }
+}
+
+.container .imgBx:hover {
+    animation: girarImagem 3s infinite alternate; 
 }
 
 .container .imgBx:before {
-    content: 'queijo \a queijo \a queijo \a queijo' 'queijo \a queijo \a queijo ';
     position: absolute;
     top: 0px;
     left: 24px;
-    color: #918e80;
+    color: #191919;
     opacity: 0.2;
     font-size: 6em;
     font-weight: 800;
@@ -119,13 +166,15 @@ body {
 .container .details button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+/*Fim dos containers*/
+
+
 .btncomprar{
     width: 11.2rem;
 }
 .product-colors span {
     width: 26px;
     height: 26px;
-    top: 7px;
     margin-right: 12px;
     left: 10px;
     border-radius: 50%;
@@ -157,21 +206,47 @@ body {
     left: -5px;
     top: -5px;
 }
-.botao{
-    display: inline;
+
+
+/*Botões e animação dos botões*/
+.botao {
+    display: inline-block;
     margin: 0;
-    padding: 0;
+    padding: 10px 20px; 
     align-items: flex-start;
     float: left;
-   
+    transition: transform 0.3s ease; /* A transição da animação */
+    border: none;
+    cursor: pointer;
+    }
+    
+.botao:hover {
+    transform: scale(1.1); 
 }
+  
+.animacao {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px; 
+    align-items: flex-start;
+    float: left;
+    transition: transform 0.3s ease; /* A transição da animação */
+    border: none;
+    cursor: pointer;
+    }
+    
+.animacao:hover {
+    transform: scale(1.1); 
+}
+/*Fim dos botões e animações*/
+.ajuste{
+    margin-top: 50px;
+}
+
 /* responsive */
 @media (max-width: 1260px) {
     .container {
         height: auto;
-    }
-    .container .imgBx:before {
-        content: 'queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo \a queijo ';
     }
     .container .imgBx {
         padding: 40px;
@@ -195,6 +270,9 @@ body {
     }
     .container .details p {
         margin-left: 0;
+    }
+    .ajuste{
+        margin-top: 200px;
     }
 }
 @media (max-width: 768px) {

@@ -35,19 +35,20 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+           <img src="img/pizza-charge.png" width="80%" height="100%" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Azeitona<br>
-                    <span>(Tradicional)</span>
+                <h2>Pizza Doce de leite com Banana<br>
+                    <span>(Especial)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+                A pizza doce de leite com banana é uma sobremesa incrivelmente saborosa, 
+                unindo a crocância da massa de pizza com a doçura do doce de leite e a suavidade das bananas. 
+                Uma experiência gastronômica única que vale a pena experimentar!
                 </p>
                 <div class="preco">
-                    <h3>R$ 20,00</h3>
+                    <h3>R$ 24,50</h3>
                 </div>
             </div>
             <div class="botao">

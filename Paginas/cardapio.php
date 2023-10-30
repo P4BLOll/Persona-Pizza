@@ -53,7 +53,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="text">
               <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <p>R$25,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
@@ -79,13 +79,13 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="text">
               <h2>Azeitona</h2>
-              <p>R$30,00</p>
+              <p>R$20,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_azeitona.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -104,13 +104,13 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="text">
               <h2>Cogumelos</h2>
-              <p>R$30,00</p>
+              <p>R$26,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_cogumelos.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="5"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -129,13 +129,13 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="text">
               <h2>Queijo</h2>
-              <p>R$30,00</p>
+              <p>R$28,50</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_queijo.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="6"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -154,13 +154,13 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="text">
               <h2>Vegetal</h2>
-              <p>R$30,00</p>
+              <p>R$18,50</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_vegetariana.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="7"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -179,13 +179,13 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="text">
               <h2>Presunto</h2>
-              <p>R$30,00</p>
+              <p>R$22,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza-presunto.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -200,17 +200,17 @@ if (isset($_SESSION['user_id'])) {
         <div class="cards">
           <div class="card">
             <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+              <img class="pizza" src="img/pizza_Marguerutti.png" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Marguerutti</h2>
+              <p>R$20,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_marguerutti.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -225,17 +225,17 @@ if (isset($_SESSION['user_id'])) {
         <div class="cards">
           <div class="card">
             <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+              <img class="pizza" src="img/Pizza_havaina.png" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Havaiana</h2>
+              <p>R$21,50</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_havaiana.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -255,17 +255,17 @@ if (isset($_SESSION['user_id'])) {
         <div class="cards">
           <div class="card">
             <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+              <img class="pizza" src="img/Pizza-chocolate.png" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Chocolate</h2>
+              <p>R$20,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza-chocolate.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -281,17 +281,17 @@ if (isset($_SESSION['user_id'])) {
         <div class="cards">
           <div class="card">
             <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+              <img class="pizza" src="img/pizza-romeuEjulieta.png" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Romeu e Julieta</h2>
+              <p>R$23,50</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_Romeu-julieta.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="7"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -305,18 +305,18 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="cards">
           <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+            <div class="img" style="font-size: 170px;">
+              <img class="pizza" src="img/pizza-banana.png" style="width: 150px; margin: 18px;" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Banana com Canela</h2>
+              <p>R$19,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_banana-canela.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="5"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -331,17 +331,17 @@ if (isset($_SESSION['user_id'])) {
         <div class="cards">
           <div class="card">
             <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+              <img class="pizza" src="img/pizza-chocolate-branco2.png" style="width: 150px;  margin: 10px;" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Chocolate Branco</h2>
+              <p>R$28,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_chocolate-branco.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="6"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -355,18 +355,18 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="cards">
           <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+            <div class="img" style="font-size: 154px;">
+              <img class="pizza" src="img/pizza-charge.png" style="width: 150px;  margin: 18px;" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Doce de leite com Banana</h2>
+              <p>R$24,50</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_doce-leite_banana.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -381,17 +381,17 @@ if (isset($_SESSION['user_id'])) {
         <div class="cards">
           <div class="card">
             <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+              <img class="pizza" src="img/pizza-cheesecake.png" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Cheesecake</h2>
+              <p>R$35,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_cheesecake.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -406,17 +406,17 @@ if (isset($_SESSION['user_id'])) {
         <div class="cards">
           <div class="card">
             <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+              <img class="pizza" src="img/pizza-marshmallow.png" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Marshmallow</h2>
+              <p>R$32,50</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_marshmallow.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">
@@ -431,17 +431,17 @@ if (isset($_SESSION['user_id'])) {
         <div class="cards">
           <div class="card">
             <div class="img">
-              <img class="pizza" src="img/pizza.svg" width="100%" alt="" />
+              <img class="pizza" src="img/pizza-negresco.png" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$30,00</p>
+              <h2>Negresco</h2>
+              <p>R$32,00</p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
+                <a href="pizza_negresco.php">Comprar</a>
                 <form action="adicionar_ao_carrinho.php" method="post">
                   <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
                   <button class="car" type="submit" name="adicionar_carrinho">

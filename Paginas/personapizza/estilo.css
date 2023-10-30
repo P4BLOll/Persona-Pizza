@@ -1,0 +1,97 @@
+.ajuste{
+    text-align: center;
+  }
+
+  label{
+    background: none;
+  }
+
+input.seletor {
+    border: 2px solid #C33633; 
+    background-color: #833433;
+    padding: 5px; 
+    font-size: 13.5px; 
+    border-radius: 14px; 
+  }
+  
+  input.seletor:focus {
+    outline: none;
+    border-color: #942a29; 
+  }
+  
+  .card {
+    max-width: 600px;
+    margin: 55px auto;
+    background-color: #131010;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-sizing: border-box;
+}
+.botaopizza{
+  font-size: 0.8rem;
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+.botaopizza a{
+  background: #C33633;
+  padding:1rem 2rem;
+  border-radius: 10px;
+}
+.botaopizza a:hover{
+  background: #942a29;
+  transition: all .2s ease-in;
+}
+
+#botao {
+  display: inline-block;
+  background-color: #C33633;
+  color: #fff;
+  margin-right: 10px;                              
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#botao:hover {
+  background-color: #942a29;
+  transform: scale(1.06);
+  transition: transform 0.2s ease-in-out;
+}
+
+
+#botao:active {
+  transform: scale(0.9); 
+  transition: transform 0.2s ease-in-out;
+}
+
+.button-container {
+  display: flex; 
+  margin: 2px;
+}
+
+.button-container button {
+  margin-right: 16px;
+}
+
+
+.li12{
+  font-size: 16px;
+  color: whitesmoke; 
+  font-weight: bold; 
+  position: relative; 
+  cursor: pointer; 
+  border: 2px solid #C33633;
+  background-color: #bb403e;
+  padding: 5px;
+  font-size: 13.5px; 
+  border-radius: 14px;
+}
+
+.li12:hover {
+  outline: none; 
+  border-color: #942a29; 
+}

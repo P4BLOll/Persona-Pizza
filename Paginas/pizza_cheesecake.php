@@ -35,19 +35,21 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+           <img src="img/pizza-cheesecake.png" width="80%" height="100%" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Azeitona<br>
-                    <span>(Tradicional)</span>
+                <h2>Pizza Cheesecake<br>
+                    <span>(Especial)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+                A pizza cheesecake é um deleite para os amantes de sobremesas. 
+                Com uma base de pizza crocante e um recheio cremoso de cheesecake, é a combinação perfeita de sabores. 
+                A cada mordida, você desfruta do contraste entre a textura crocante e a doçura suave do cheesecake. 
+                Uma sobremesa inesquecível que satisfaz os desejos mais doces!
                 </p>
                 <div class="preco">
-                    <h3>R$ 20,00</h3>
+                    <h3>R$ 35,00</h3>
                 </div>
             </div>
             <div class="botao">

@@ -25,6 +25,7 @@ if (isset($_SESSION['user_id'])) {
     <title>Produto</title>
     <link rel="stylesheet" href="css/produto.css">
     <script src="js/nav-animacao.js"></script>
+    
 </head>
 
 <body>
@@ -35,16 +36,18 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+           <img src="img/pizza-chocolate-ao-leite.png" width="100%" height="98%" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Azeitona<br>
+                <h2>Pizza de Chocolate<br>
                     <span>(Tradicional)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+                A pizza de chocolate é uma sobremesa que combina a forma de pizza com o irresistível sabor do chocolate. 
+                Sua massa doce é coberta com chocolate derretido, pedaços de chocolate, marshmallows e,
+                 às vezes, frutas frescas. Uma indulgência única para os amantes de chocolate, 
+                essa sobremesa é uma alternativa deliciosa à pizza tradicional.
                 </p>
                 <div class="preco">
                     <h3>R$ 20,00</h3>

@@ -35,19 +35,21 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+           <img src="img/pizza-marshmallow.png" width="100%" height="100%" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Azeitona<br>
-                    <span>(Tradicional)</span>
+                <h2>Pizza de Marshmallow<br>
+                    <span>(Especial)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+                A pizza de marshmallow é uma sobremesa incrivelmente indulgente. 
+                Com uma base de massa crocante e generosas porções de marshmallow derretido, é uma explosão de doçura e textura.
+                Perfeita para satisfazer sua vontade de algo doce de forma deliciosa e criativa. 
+                Um verdadeiro prazer para os amantes de marshmallow!
                 </p>
                 <div class="preco">
-                    <h3>R$ 20,00</h3>
+                    <h3>R$ 32,50</h3>
                 </div>
             </div>
             <div class="botao">

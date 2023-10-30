@@ -35,19 +35,20 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+           <img src="img/pizza-banana.png" width="100%" height="93%" alt="">
         </div>
         <div class="details">
             <div class="content">
-                <h2>Pizza de Azeitona<br>
-                    <span>(Tradicional)</span>
+                <h2>Pizza Banana com Canela<br>
+                    <span>(Especial)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+                A pizza de banana com canela é uma sobremesa deliciosa que une o sabor doce e reconfortante
+                da banana com o toque quente e aromático da cenela. Uma explosão de sabores que faz dessa pizza
+                uma escolha irresistível para os amantes de sobremesas.
                 </p>
                 <div class="preco">
-                    <h3>R$ 20,00</h3>
+                    <h3>R$ 19,00</h3>
                 </div>
             </div>
             <div class="botao">
