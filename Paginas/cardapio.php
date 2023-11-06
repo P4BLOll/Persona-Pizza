@@ -21,6 +21,7 @@ if (isset($_SESSION['user_id'])) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <meta name=viewport content="width=device-width, initial-scale=1">
   <title>PersonaPizza</title>
 </head>
 

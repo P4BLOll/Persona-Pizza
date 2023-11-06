@@ -17,8 +17,28 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: #0f0f0f; /* Estilo de fundo quando escondido */
+    background: #0f0f0f;
+    animation: nav-animation 2s ease-in-out;
+    transition: transform 1s ease;
+    transform: translateY(-100%);
   }
+
+  #navbar.visible {
+    transform: translateY(0); /* Estilo de fundo quando visível */
+  }
+
+
+  @keyframes nav-animation{
+    from{
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+     to{
+        opacity: 1;
+        transform: translateY(0);
+     }
+ }
+
 
 /* containers*/
 .container {
@@ -272,7 +292,7 @@ body {
         margin-left: 0;
     }
     .ajuste{
-        margin-top: 200px;
+        margin-top: 320px;
     }
 }
 @media (max-width: 768px) {
