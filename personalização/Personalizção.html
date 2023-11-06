@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalização</title>
+    <link rel="stylesheet" href="branco.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <main>
+        <section class="person">
+            <div class="title">
+                <h1>Personalização</h1>
+            </div>
+            <div class="options">
+                <h5>Selecione a Massa:</h5>
+                <select id="massa" class="custom-select">
+                    <option value="fina">Massa Fina</option>
+                    <option value="grossa">Massa Grossa</option>
+                </select>
+
+                <h5>Escolha os Ingredientes:</h5>
+                <div class="ingredientes">
+                    <div>
+                        <div>
+                            <input type="checkbox" id="queijo" value="queijo">
+                            <label for="queijo">Queijo</label><br>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tomate" value="tomate">
+                            <label for="tomate">Tomate</label><br>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="checkbox" id="pepperoni" value="pepperoni">
+                            <label for="pepperoni">Pepperoni</label><br>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="azeitona" value="azeitona">
+                            <label for="azeitona">Azeitona</label><br>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="fazerPedido()">Fazer Pedido</button>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
