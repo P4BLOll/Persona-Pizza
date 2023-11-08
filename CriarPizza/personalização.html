@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personalize sua Pizza</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Monte a sua Pizza</h1>
+    
+    <div class="options">
+      <h5>Selecione a Massa:</h5>
+      <select id="massa" class="custom-select">
+        <option value="fina">Massa Fina</option>
+        <option value="grossa">Massa Grossa</option>
+      </select>
+      
+      <h5>Escolha os Ingredientes:</h5>
+      <div class="ingredientes">
+        <input type="checkbox" id="queijo" value="queijo">
+        <label for="queijo">Queijo</label><br>
+        <input type="checkbox" id="tomate" value="tomate">
+        <label for="tomate">Tomate</label><br>
+        <input type="checkbox" id="pepperoni" value="pepperoni">
+        <label for="pepperoni">Pepperoni</label><br>
+        <input type="checkbox" id="azeitona" value="azeitona">
+        <label for="azeitona">Azeitona</label><br>
+      </div>
+      
+      <button onclick="fazerPedido()">Fazer Pedido</button>
+    </div>
+    
+    <div class="resumo">
+      <h2>Resumo do Pedido:</h2>
+      <p id="resumo-pedido"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+    function fazerPedido() {
+  const massaSelecionada = document.getElementById("massa").value;
+
+  const ingredientesSelecionados = document.querySelectorAll('input[type=checkbox]:checked');
+  let ingredientes = [];
+  ingredientesSelecionados.forEach(function(ingrediente) {
+    ingredientes.push(ingrediente.value);
+  });
+
+  const resumoPedido = document.getElementById("resumo-pedido");
+  resumoPedido.innerHTML = `Massa: ${massaSelecionada}<br>Ingredientes: ${ingredientes.join(', ')}`;
+}
+
+
+const select = document.querySelector('.custom-select');
+select.addEventListener('change', function() {
+  const selectedOption = this.options[this.selectedIndex];
+  const selectedValue = selectedOption.value;
+  const selectedText = selectedOption.textContent;
+  console.log(`Selected value: ${selectedValue}, Selected text: ${selectedText}`);
+});
+
+</script>

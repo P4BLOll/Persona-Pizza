@@ -1,0 +1,79 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #191919;
+  color: #E0E0E0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #232323;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-size: larger;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #C33633;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+select, input[type="checkbox"], button {
+  margin-bottom: 10px;
+  background-color:#232323;
+  padding: .5rem;
+  font-size: 1rem;
+  border-radius: .5rem;
+  color: #E0E0E0;
+  transition: all .2s ease-in-out;
+}
+
+option:hover{
+ background: #232323;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #C33633;
+  color: #E0E0E0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #FF574D;
+}
+
+.resumo {
+  border-top: 1px solid #666;
+  padding-top: 20px;
+}
+
+#resumo-pedido {
+  font-size: 1.1em;
+  color: #E0E0E0;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .custom-select,
+  input[type="checkbox"],
+  button {
+    padding: 8px;
+  }
+}
