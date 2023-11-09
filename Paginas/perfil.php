@@ -76,7 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     <div class="elipse">
         <!-- <img src="img/Ellipse 50.svg" alt=""> -->
     </div>
-    <h1 class="name_u">Bem Vindo, <?php echo $user['nome']; ?></h1>
+    <div class="title">
+    <h1 class="name_u">Bem Vindo, <strong><?php echo $user['nome']; ?></strong></h1>
+    </div>
     <?php if (!empty($user['foto_perfil'])) : ?>
     <div class="foto_perfil">
         <div class="moldura">
@@ -97,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     <?php else : ?>
     <div class="foto_perfil">
         <div class="moldura">
-            <img class="foto" src="img/default_profile.png" alt="Foto de Perfil Padrão">
+            <img class="foto"  id="avatar"src="img/system-solid-8-account.gif" width="100px" alt="Foto de Perfil Padrão">
             <div class="upload_form">
                 <form action="perfil.php" method="POST" enctype="multipart/form-data" id="upload_form">
                 <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
