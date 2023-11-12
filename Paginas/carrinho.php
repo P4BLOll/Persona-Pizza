@@ -1,107 +1,135 @@
-<?php
-require 'conexao.php';
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho</title>
-    <link rel="stylesheet" href="css/carrinho.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="css/teste_carrinho.css">
 </head>
-
 <body>
+<?php
+session_start();
+require 'conexao.php';
 
-    <button class="sair" onclick="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+// Inicialize o carrinho de compras na sessão, se ainda não estiver definido
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 
-    <div class="container">
-        <form method="post" action="atualizar_carrinho.php">
-            <div class="carrinho-itens">
-                <?php
-                $total = 0;
+// Variável para armazenar o preço total
+$totalPrice = 0;
 
-                if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
-                    foreach ($_SESSION['carrinho'] as $pizza_id => $quantidade) {
-                        $stmt = $PDO->prepare("SELECT * FROM pizzas WHERE id = :id");
-                        $stmt->bindParam(':id', $pizza_id, PDO::PARAM_INT);
-                        $stmt->execute();
+// Exiba o carrinho de compras
+if (!empty($_SESSION['cart'])) { ?>
+<main>
+<a class="voltarin" href="cardapio.php"><img src="img/seta-esquerda.png" alt=""><div class="textbtn">Voltar</div></a>
+<div class="titulo">
+    <h2>Carrinho de Compras</h2>
+</div>
 
-                        $pizza = $stmt->fetch(PDO::FETCH_ASSOC);
+    <?php foreach ($_SESSION['cart'] as $type => $pizzas) { ?>
+        <h3 class="type"><?php echo $type; ?></h3>
+        <div class="table-container">
+        <table>
+            <tr><th id="primeiro">Nome da Pizza</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th id="ultimo">Total</th>
 
-                        if ($pizza) {
-                ?>
-                            <div class="carrinho-item">
-                                <h2><?= $pizza['nome'] ?></h2>
-                                <p>Preço por unidade: R$<span class="preco-unitario"><?= number_format($pizza['preco'], 2, ',', '.') ?></span></p>
-                                <input type="number" class="quantidade" name="quantidade[<?= $pizza['id'] ?>]" value="<?= $quantidade ?>" min="1">
-                                <p>Preço total: R$<span class="preco-total"><?= number_format(($pizza['preco'] * $quantidade), 2, ',', '.') ?></span></p>
-                                <button type="submit" class="btn-excluir" onclick="removerPizza(<?= $pizza_id ?>)"><lord-icon src="https://cdn.lordicon.com/skkahier.json" trigger="hover" colors="primary:#ffffff" style="width:1.2rem;height:1.2rem">
-                                    </lord-icon></i></button>
+            <?php $total = 0;
+            foreach ($pizzas as $pizza_id => $item) {
+                $pizza_name = buscarNomeDaPizza($pizza_id, $type);
+                $pizza_price = buscarPrecoDaPizza($pizza_id, $type);
+
+                $subtotal = $pizza_price * $item['quantity'];
+                $total += $subtotal;
+                $totalPrice += $subtotal; ?>
+                <tr>
+                    <td><?php echo $pizza_name; ?></td>
+                    <td>R$<?php echo $pizza_price; ?></td>
+                    <td id="buttons">
+                        <form method="post" action="update_cart.php">
+                            <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                            <input type="hidden" name="pizza_type" value="<?php echo $type; ?>">
+                            <input type="hidden" name="quantity" value="<?php echo $item['quantity']; ?>">
+                            <div class="actions">
+                            <button type="submit" name="action" value="remove">-</button>
+                                <p><?php echo $item['quantity']; ?></p>
+                                <button type="submit" name="action" value="add">+</button>
                             </div>
-                <?php
-                            $total += $pizza['preco'] * $quantidade;
-                        }
-                    }
-                } else {
-                    echo '<p>O carrinho está vazio.</p>';
-                }
-                ?>
-            </div>
-            <div class="botoes">
-                <button><a class="AB" href="cardapio.php">Continuar Comprando</a></button>
-                <button>Finalizar Pedido</button>
-            </div>
-            <p>Total: R$<span id="preco-total-final">
-                    <?= number_format($total, 2, ',', '.') ?>
-                </span></p>
-        </form>
+                        </form>
+                        <form method="post" action="remover_do_carrinho.php">
+                            <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                            <input type="hidden" name="pizza_type" value="<?php echo $type; ?>">
+                            <button type="submit" id="lixeira" name="remove_from_cart" value="" alt=""><img id="lixeira" src="img/lixeira-de-reciclagem (1).png" alt=""></button>
+                        </form>
+                    </td>
+                    <td>R$<?php echo $subtotal; ?></td>
+                </tr>
+            <?php } ?>
 
+            <tr id="total"><td colspan="4">Total: R$<?php echo $total; ?></td></tr>
+        </table>
+        </div>
+    <?php } ?>
+<div class="preco">
+    <h3 id="preco">Preço Total: R$<?php echo $totalPrice; ?></h3>
+    <form method="post" action="finalizacao.php">
+        <input type="hidden" name="valor_final" value="<?php echo $totalPrice; ?>">
+        <button type="submit" name="pagar" id="pagar" >Ir para Pagamento</button>
+    </form>
     </div>
+<?php } else {?>
+    <div class="vazio">
+    <div class="info">
+    <h3>O Carrinho Está Vazio</h3>
+    </div>
+    <img class="carro_vazio" src="img/vazio.png" alt="">
+    <p>Ops! Parece que o carrinho está vazio! <br><br>
+        Volte para o cardápio e adicione pizzas, todas aparecerão aqui.
+    </p>
+    <div class="botao_voltar">
+    <a class="voltar" href="cardapio.php"><img src="img/seta-esquerda.png" alt=""><div class="textbtn">Voltar</div></a>
+    </div>
+    </div>
+
+<?php }
+
+// Função para buscar o nome da pizza no banco de dados
+function buscarNomeDaPizza($pizza_id, $pizza_type) {
+    global $PDO;
+    $sql = "SELECT nome FROM pizzas_$pizza_type WHERE id = :pizza_id";
+    $stmt = $PDO->prepare($sql);
+    $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result !== false) {
+        return $result['nome'];
+    } else {
+        return 'Pizza não encontrada'; // Ou outra mensagem de erro apropriada
+    }
+}
+
+// Função para buscar o preço da pizza no banco de dados
+function buscarPrecoDaPizza($pizza_id, $pizza_type) {
+    global $PDO;
+    $sql = "SELECT preco FROM pizzas_$pizza_type WHERE id = :pizza_id";
+    $stmt = $PDO->prepare($sql);
+    $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result !== false) {
+        return $result['preco'];
+    } else {
+        return 0.00; // Ou outro valor padrão apropriado
+    }
+}
+?>
+</main>
 </body>
-<script>
-    document.addEventListener('change', function(event) {
-        if (event.target.classList.contains('quantidade')) {
-            var pizzaId = event.target.name.match(/\d+/)[0];
-            var novaQuantidade = event.target.value;
-
-            fetch('atualizar_carrinho.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: 'pizza_id=' + pizzaId + '&nova_quantidade=' + novaQuantidade
-            }).then(function() {
-                window.location.reload();
-            });
-        }
-    });
-
-    function removerPizza(pizzaId) {
-        fetch('remover_pizza_carrinho.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: 'pizza_id=' + pizzaId
-        }).then(function() {
-            window.location.reload();
-        });
-    }
-
-    function goBack() {
-        window.history.back();
-    }
-</script>
-
 </html>

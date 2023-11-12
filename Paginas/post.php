@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require 'conexao.php'; // Substitua pelo seu arquivo de configuração de banco de dados
 
     $userID = $_SESSION['user_id'];
+    $pizzaID = $_POST['pizza_id']; // Adicione esta linha para obter o ID da pizza
     $postContent = $_POST['post_content'];
     $currentDate = date('Y-m-d H:i:s');
     $imageUploadPath = null;
@@ -25,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Inserir a postagem no banco de dados com ou sem imagem
     $aprovado = false;
-    $stmt = $PDO->prepare("INSERT INTO publicacoes (conteudo, imagem, id_usuario, aprovado, data_publicacao) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$postContent, $imageUploadPath, $userID, $aprovado, $currentDate]);
+    $stmt = $PDO->prepare("INSERT INTO publicacoes (id_usuario, id_pizza, conteudo, imagem, aprovado, data_publicacao) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$userID, $pizzaID, $postContent, $imageUploadPath, $aprovado, $currentDate]);
 
     header("Location: social_media.php");
     exit();

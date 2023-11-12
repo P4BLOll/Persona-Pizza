@@ -1,0 +1,126 @@
+*{
+
+    margin: 0;
+    padding: 0%;
+    border: none;
+    list-style: none;
+    color: aliceblue;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+body{
+    overflow-x: hidden !important;
+    background: #191919;
+    margin: 0;
+}
+
+main{
+    padding: 0 3rem 3rem 3rem;
+}
+
+.informacoes{
+    border-radius: 0 0 2rem 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+    background-color: #121212;
+}
+
+.informacoes h1{
+    font-size: 3rem;
+    color: #C33633;
+}
+
+table{
+    width: 100%;
+}
+
+tr{
+    text-align: center;
+    border-bottom: 1px solid #C33633;
+}
+
+th{
+    font-size: 2rem;
+}
+
+td{
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #C33633;
+}
+
+.botoes{
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.botoes button{
+    cursor: pointer;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    margin: 1rem;
+    border: none;
+    background-color: #C33633;
+    padding: .8rem;
+}
+
+p.preco-total{
+    font-size: 2rem;
+}
+
+.table-container{
+ display: flex;
+ justify-content: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    overflow-x: auto;
+    border-radius: 1rem 1rem 0 0;
+}
+
+@media  (max-width: 720px) {
+
+    .table-container{
+
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+
+    div.informacoes{
+        padding: 0;
+    }
+
+    th{
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+
+    table{
+        margin: 1rem;
+    }
+
+    main{
+        padding: 0 3rem 3rem 3rem;
+    }
+
+    .botoes{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    p.preco-total{
+        margin-top: 2rem;
+    }
+    .informacoes h1{
+        padding: 1rem;
+        margin-top: 2rem;
+        font-size: 2.5rem;
+    }
+
+}

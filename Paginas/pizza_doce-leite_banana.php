@@ -52,15 +52,17 @@ if (isset($_SESSION['user_id'])) {
                 </div>
             </div>
             <div class="botao">
-                <form action="adicionar_ao_carrinho.php" method="post">
-                    <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+            <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="14"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                    <input type="hidden" name="pizza_type" value="Comum">
                     <div class="animacao">
-                      <button type="submit" name="adicionar_carrinho">Adicionar ao carrinho</button>
+                        <button type="submit" name="add_to_cart">Adicionar ao carrinho</button>
                     </div>
                 </form>
-                <form action="Personalizacao_Pizza/index.php">
+                <form action="personalizacao.php" method="post">
                     <div class="animacao">
-                        <button>Personalizar</button>
+                        <input type="hidden" name="pizza_perso" value="14">
+                        <button type="submit" name="personalizacao">Personalizar</button>
                     </div>
                 </form>
             </div>

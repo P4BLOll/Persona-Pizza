@@ -76,22 +76,7 @@ unset($_SESSION['error']); // Limpe a mensagem de erro da sessão
                     <!-- Botão de envio do formulário de login -->
                     <button class="form_button" type="submit">Entrar</button>
                     <!-- Link para redefinir a senha -->
-                    <a href="#" class="form_link">Esqueceu a Senha?</a>
                     <!-- Container para ícones de redes sociais -->
-                    <div class="form_redes">
-                        <!-- Ícone e link para o Google -->
-                        <a class="redes_icon" href="#">
-                            <i class="fa-brands fa-google"></i>
-                        </a>
-                        <!-- Ícone e link para o Facebook -->
-                        <a class="redes_icon" href="#">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <!-- Ícone e link para o Instagram -->
-                        <a class="redes_icon" href="#">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
                 </form>
 
                 </form>

@@ -45,8 +45,6 @@ body {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
-    align-items: center;
     justify-content: space-between;
     background: #3E3636;
     width: 1500px;

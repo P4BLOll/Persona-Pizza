@@ -21,24 +21,45 @@ $isAdmin = $user['is_admin'];
 <html>
 
 <head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/adm.css" />
+    <script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
+
 </head>
 
 <body>
-    <h1>Bem-vindo ao Dashboard, <?php echo $user['nome']; ?>!</h1>
+    <main>
+        <div class="cc">
+            <div class="title">
+                <div class="icon">
+                <lord-icon src="https://cdn.lordicon.com/lecprnjb.json" trigger="in" delay="500" state="in-cog"
+                    colors="primary:#ffffff" class="x" style="width:150px;height:150px">
+                </lord-icon>
+                </div>
+                <h1>Bem-vindo Administrador()
+                    <?php echo $user['nome']; ?>!
+                </h1>
+            </div>
+        </div>
+        <!-- Display options for managing posts or other actions -->
+        <?php if ($isAdmin): ?>
+            <div class="a">
+                <h1>Gerenciar</h1>
+                <div class="btn">
+                    <li><a href="manage_posts.php">Posts</a></li>
+                    <li><a href="gerenciar_cardapio.php">Cardapio</a></li>
+                    <li><a href="gerenciar_pizzzas_criadas.php">Pizzas Criadas </a></li>
+                </div>
 
-    <!-- Display options for managing posts or other actions -->
-    <?php if ($isAdmin) : ?>
-        <ul>
-            <li><a href="manage_posts.php">Gerenciar Posts</a></li>
-            <li><a href="other_actions.php">Outras Ações</a></li>
-            </form>
-        </ul>
-    <?php else : ?>
-        <p>Você não tem permissão para acessar esta página.</p>
-    <?php endif; ?>
-
+                </form>
+            </div>
+        <?php else: ?>
+            <p>Você não tem permissão para acessar esta página.</p>
+        <?php endif; ?>
+    </main>
 </body>
 
 </html>

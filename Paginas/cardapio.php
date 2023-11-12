@@ -49,416 +49,911 @@ if (isset($_SESSION['user_id'])) {
         <!-- card -->
         <div class="cards">
           <div class="card">
+            <?php
+
+            $pizza_id = 1; // ID da pizza que você deseja exibir
+
+            try {
+              $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+              $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+              $stmt->execute();
+
+              $row = $stmt->fetch();
+
+              if ($row) {
+                $nome = $row["nome"];
+                $preco = $row["preco"];
+                $url_imagem = $row["url_imagem"];
+                $em_estoque = $row["em_estoque"];
+              } else {
+                echo "Pizza não encontrada";
+              }
+            } catch (PDOException $e) {
+              echo 'Erro ao executar a consulta: ' . $e->getMessage();
+            }
+
+            ?>
+
             <div class="img">
-              <img class="pizza" src="img/Pizza de pepperoni, de cima.png" width="100%" alt="" />
+              <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Peperoni</h2>
-              <p>R$25,00</p>
+              <h2><?php echo $nome; ?></h2>
+              <p>R$<?php echo $preco; ?></p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_peperoni.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
+                <?php if ($em_estoque) : ?>
+                  <a href="pizza_peperoni.php">Comprar</a>
+                  <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                    <input type="hidden" name="pizza_type" value="Comum">
+                    <button class="car" type="submit" name="add_to_cart">
+                      <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                      </lord-icon>
+                    </button>
+                  </form>
+                <?php else : ?>
+                  <button disabled>Esgotada</button>
+                <?php endif; ?>
               </div>
             </div>
           </div>
         </div>
-       
+
+
+
         <div class="cards">
           <div class="card">
+            <?php
+
+            $pizza_id = 4; // ID da pizza que você deseja exibir
+
+            try {
+              $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+              $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+              $stmt->execute();
+
+              $row = $stmt->fetch();
+
+              if ($row) {
+                $nome = $row["nome"];
+                $preco = $row["preco"];
+                $url_imagem = $row["url_imagem"];
+                $em_estoque = $row["em_estoque"];
+              } else {
+                echo "Pizza não encontrada";
+              }
+            } catch (PDOException $e) {
+              echo 'Erro ao executar a consulta: ' . $e->getMessage();
+            }
+
+            ?>
+
             <div class="img">
-              <img class="pizza" src="img/Pizza de azeitona, de cima.png" width="100%" alt="" />
+              <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Azeitona</h2>
-              <p>R$20,00</p>
+              <h2><?php echo $nome; ?></h2>
+              <p>R$<?php echo $preco; ?></p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_azeitona.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/Pizza de cogumelos, de cima.png" width="100%" alt="" />
-            </div>
-            <div class="text">
-              <h2>Cogumelos</h2>
-              <p>R$26,00</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_cogumelos.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="5"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/Pizza de queijo, de cima.png" width="100%" alt="" />
-            </div>
-            <div class="text">
-              <h2>Queijo</h2>
-              <p>R$28,50</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_queijo.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="6"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/Pizza vegetais, de cima.png" width="100%" alt="" />
-            </div>
-            <div class="text">
-              <h2>Vegetal</h2>
-              <p>R$18,50</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_vegetariana.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="7"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
+                <?php if ($em_estoque) : ?>
+                  <a href="pizza_azeitona.php">Comprar</a>
+                  <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                    <input type="hidden" name="pizza_type" value="Comum">
+                    <button class="car" type="submit" name="add_to_cart">
+                      <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                      </lord-icon>
+                    </button>
+                  </form>
+                <?php else : ?>
+                  <button disabled>Esgotada</button>
+                <?php endif; ?>
               </div>
             </div>
           </div>
         </div>
         <div class="cards">
           <div class="card">
+            <?php
+
+            $pizza_id = 5; // ID da pizza que você deseja exibir
+
+            try {
+              $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+              $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+              $stmt->execute();
+
+              $row = $stmt->fetch();
+
+              if ($row) {
+                $nome = $row["nome"];
+                $preco = $row["preco"];
+                $url_imagem = $row["url_imagem"];
+                $em_estoque = $row["em_estoque"];
+              } else {
+                echo "Pizza não encontrada";
+              }
+            } catch (PDOException $e) {
+              echo 'Erro ao executar a consulta: ' . $e->getMessage();
+            }
+
+            ?>
+
             <div class="img">
-              <img class="pizza" src="img/Pizza de presunto, de cima.png" width="100%" alt="" />
+              <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Presunto</h2>
-              <p>R$22,00</p>
+              <h2><?php echo $nome; ?></h2>
+              <p>R$<?php echo $preco; ?></p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza-presunto.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
+                <?php if ($em_estoque) : ?>
+                  <a href="pizza_cogumelos.php">Comprar</a>
+                  <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                    <input type="hidden" name="pizza_type" value="Comum">
+                    <button class="car" type="submit" name="add_to_cart">
+                      <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                      </lord-icon>
+                    </button>
+                  </form>
+                <?php else : ?>
+                  <button disabled>Esgotada</button>
+                <?php endif; ?>
               </div>
             </div>
           </div>
         </div>
+
         <div class="cards">
           <div class="card">
+            <?php
+
+            $pizza_id = 6; // ID da pizza que você deseja exibir
+
+            try {
+              $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+              $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+              $stmt->execute();
+
+              $row = $stmt->fetch();
+
+              if ($row) {
+                $nome = $row["nome"];
+                $preco = $row["preco"];
+                $url_imagem = $row["url_imagem"];
+                $em_estoque = $row["em_estoque"];
+              } else {
+                echo "Pizza não encontrada";
+              }
+            } catch (PDOException $e) {
+              echo 'Erro ao executar a consulta: ' . $e->getMessage();
+            }
+
+            ?>
+
             <div class="img">
-              <img class="pizza" src="img/pizza_Marguerutti.png" width="100%" alt="" />
+              <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Marguerutti</h2>
-              <p>R$20,00</p>
+              <h2><?php echo $nome; ?></h2>
+              <p>R$<?php echo $preco; ?></p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_marguerutti.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
+                <?php if ($em_estoque) : ?>
+                  <a href="pizza_queijo.php">Comprar</a>
+                  <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                    <input type="hidden" name="pizza_type" value="Comum">
+                    <button class="car" type="submit" name="add_to_cart">
+                      <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                      </lord-icon>
+                    </button>
+                  </form>
+                <?php else : ?>
+                  <button disabled>Esgotada</button>
+                <?php endif; ?>
               </div>
             </div>
           </div>
         </div>
+
         <div class="cards">
           <div class="card">
+            <?php
+
+            $pizza_id = 7; // ID da pizza que você deseja exibir
+
+            try {
+              $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+              $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+              $stmt->execute();
+
+              $row = $stmt->fetch();
+
+              if ($row) {
+                $nome = $row["nome"];
+                $preco = $row["preco"];
+                $url_imagem = $row["url_imagem"];
+                $em_estoque = $row["em_estoque"];
+              } else {
+                echo "Pizza não encontrada";
+              }
+            } catch (PDOException $e) {
+              echo 'Erro ao executar a consulta: ' . $e->getMessage();
+            }
+
+            ?>
+
             <div class="img">
-              <img class="pizza" src="img/Pizza_havaina.png" width="100%" alt="" />
+              <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
             </div>
             <div class="text">
-              <h2>Havaiana</h2>
-              <p>R$21,50</p>
+              <h2><?php echo $nome; ?></h2>
+              <p>R$<?php echo $preco; ?></p>
               <div class="estrelas">
                 <i class='bx bxs-star'></i>
                 <p>5</p>
               </div>
               <div class="btns">
-                <a href="pizza_havaiana.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
+                <?php if ($em_estoque) : ?>
+                  <a href="pizza_vegetariana.php">Comprar</a>
+                  <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                    <input type="hidden" name="pizza_type" value="Comum">
+                    <button class="car" type="submit" name="add_to_cart">
+                      <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                      </lord-icon>
+                    </button>
+                  </form>
+                <?php else : ?>
+                  <button disabled>Esgotada</button>
+                <?php endif; ?>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="cards">
+          <div class="card">
+            <?php
+
+            $pizza_id = 8; // ID da pizza que você deseja exibir
+
+            try {
+              $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+              $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+              $stmt->execute();
+
+              $row = $stmt->fetch();
+
+              if ($row) {
+                $nome = $row["nome"];
+                $preco = $row["preco"];
+                $url_imagem = $row["url_imagem"];
+                $em_estoque = $row["em_estoque"];
+              } else {
+                echo "Pizza não encontrada";
+              }
+            } catch (PDOException $e) {
+              echo 'Erro ao executar a consulta: ' . $e->getMessage();
+            }
+
+            ?>
+
+            <div class="img">
+              <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+            </div>
+            <div class="text">
+              <h2><?php echo $nome; ?></h2>
+              <p>R$<?php echo $preco; ?></p>
+              <div class="estrelas">
+                <i class='bx bxs-star'></i>
+                <p>5</p>
+              </div>
+              <div class="btns">
+                <?php if ($em_estoque) : ?>
+                  <a href="pizza-presunto.php">Comprar</a>
+                  <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                    <input type="hidden" name="pizza_type" value="Comum">
+                    <button class="car" type="submit" name="add_to_cart">
+                      <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                      </lord-icon>
+                    </button>
+                  </form>
+                <?php else : ?>
+                  <button disabled>Esgotada</button>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <?php
+
+            $pizza_id = 9; // ID da pizza que você deseja exibir
+
+            try {
+              $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+              $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+              $stmt->execute();
+
+              $row = $stmt->fetch();
+
+              if ($row) {
+                $nome = $row["nome"];
+                $preco = $row["preco"];
+                $url_imagem = $row["url_imagem"];
+                $em_estoque = $row["em_estoque"];
+              } else {
+                echo "Pizza não encontrada";
+              }
+            } catch (PDOException $e) {
+              echo 'Erro ao executar a consulta: ' . $e->getMessage();
+            }
+
+            ?>
+
+            <div class="img">
+              <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+            </div>
+            <div class="text">
+              <h2><?php echo $nome; ?></h2>
+              <p>R$<?php echo $preco; ?></p>
+              <div class="estrelas">
+                <i class='bx bxs-star'></i>
+                <p>5</p>
+              </div>
+              <div class="btns">
+                <?php if ($em_estoque) : ?>
+                  <a href="pizza_marguerutti.php">Comprar</a>
+                  <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                    <input type="hidden" name="pizza_type" value="Comum">
+                    <button class="car" type="submit" name="add_to_cart">
+                      <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                      </lord-icon>
+                    </button>
+                  </form>
+                <?php else : ?>
+                  <button disabled>Esgotada</button>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <?php
+
+            $pizza_id = 23; // ID da pizza que você deseja exibir
+
+            try {
+              $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+              $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+              $stmt->execute();
+
+              $row = $stmt->fetch();
+
+              if ($row) {
+                $nome = $row["nome"];
+                $preco = $row["preco"];
+                $url_imagem = $row["url_imagem"];
+                $em_estoque = $row["em_estoque"];
+              } else {
+                echo "Pizza não encontrada";
+              }
+            } catch (PDOException $e) {
+              echo 'Erro ao executar a consulta: ' . $e->getMessage();
+            }
+
+            ?>
+
+            <div class="img">
+              <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+            </div>
+            <div class="text">
+              <h2><?php echo $nome; ?></h2>
+              <p>R$<?php echo $preco; ?></p>
+              <div class="estrelas">
+                <i class='bx bxs-star'></i>
+                <p>5</p>
+              </div>
+              <div class="btns">
+                <?php if ($em_estoque) : ?>
+                  <a href="pizza_havaiana.php">Comprar</a>
+                  <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                    <input type="hidden" name="pizza_type" value="Comum">
+                    <button class="car" type="submit" name="add_to_cart">
+                      <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                      </lord-icon>
+                    </button>
+                  </form>
+                <?php else : ?>
+                  <button disabled>Esgotada</button>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- // -->
+        <div class="doces">
+          <span>ou</span>
+          <!-- card -->
+          <div class="cards">
+            <div class="card">
+              <?php
+
+              $pizza_id = 10; // ID da pizza que você deseja exibir
+
+              try {
+                $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+                $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $row = $stmt->fetch();
+
+                if ($row) {
+                  $nome = $row["nome"];
+                  $preco = $row["preco"];
+                  $url_imagem = $row["url_imagem"];
+                  $em_estoque = $row["em_estoque"];
+                } else {
+                  echo "Pizza não encontrada";
+                }
+              } catch (PDOException $e) {
+                echo 'Erro ao executar a consulta: ' . $e->getMessage();
+              }
+
+              ?>
+
+              <div class="img">
+                <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+              </div>
+              <div class="text">
+                <h2><?php echo $nome; ?></h2>
+                <p>R$<?php echo $preco; ?></p>
+                <div class="estrelas">
+                  <i class='bx bxs-star'></i>
+                  <p>5</p>
+                </div>
+                <div class="btns">
+                  <?php if ($em_estoque) : ?>
+                    <a href="pizza-chocolate.php">Comprar</a>
+                    <form action="add_to_cart.php" method="post">
+                      <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                      <input type="hidden" name="pizza_type" value="Comum">
+                      <button class="car" type="submit" name="add_to_cart">
+                        <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                        </lord-icon>
+                      </button>
+                    </form>
+                  <?php else : ?>
+                    <button disabled>Esgotada</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="cards">
+            <div class="card">
+              <?php
+
+              $pizza_id = 11; // ID da pizza que você deseja exibir
+
+              try {
+                $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+                $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $row = $stmt->fetch();
+
+                if ($row) {
+                  $nome = $row["nome"];
+                  $preco = $row["preco"];
+                  $url_imagem = $row["url_imagem"];
+                  $em_estoque = $row["em_estoque"];
+                } else {
+                  echo "Pizza não encontrada";
+                }
+              } catch (PDOException $e) {
+                echo 'Erro ao executar a consulta: ' . $e->getMessage();
+              }
+
+              ?>
+
+              <div class="img">
+                <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+              </div>
+              <div class="text">
+                <h2><?php echo $nome; ?></h2>
+                <p>R$<?php echo $preco; ?></p>
+                <div class="estrelas">
+                  <i class='bx bxs-star'></i>
+                  <p>5</p>
+                </div>
+                <div class="btns">
+                  <?php if ($em_estoque) : ?>
+                    <a href="pizza_Romeu-julieta.php">Comprar</a>
+                    <form action="add_to_cart.php" method="post">
+                      <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                      <input type="hidden" name="pizza_type" value="Comum">
+                      <button class="car" type="submit" name="add_to_cart">
+                        <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                        </lord-icon>
+                      </button>
+                    </form>
+                  <?php else : ?>
+                    <button disabled>Esgotada</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <?php
+
+              $pizza_id = 12; // ID da pizza que você deseja exibir
+
+              try {
+                $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+                $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $row = $stmt->fetch();
+
+                if ($row) {
+                  $nome = $row["nome"];
+                  $preco = $row["preco"];
+                  $url_imagem = $row["url_imagem"];
+                  $em_estoque = $row["em_estoque"];
+                } else {
+                  echo "Pizza não encontrada";
+                }
+              } catch (PDOException $e) {
+                echo 'Erro ao executar a consulta: ' . $e->getMessage();
+              }
+
+              ?>
+
+              <div class="img">
+                <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+              </div>
+              <div class="text">
+                <h2><?php echo $nome; ?></h2>
+                <p>R$<?php echo $preco; ?></p>
+                <div class="estrelas">
+                  <i class='bx bxs-star'></i>
+                  <p>5</p>
+                </div>
+                <div class="btns">
+                  <?php if ($em_estoque) : ?>
+                    <a href="pizza_banana-canela.php">Comprar</a>
+                    <form action="add_to_cart.php" method="post">
+                      <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                      <input type="hidden" name="pizza_type" value="Comum">
+                      <button class="car" type="submit" name="add_to_cart">
+                        <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                        </lord-icon>
+                      </button>
+                    </form>
+                  <?php else : ?>
+                    <button disabled>Esgotada</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <?php
+
+              $pizza_id = 13; // ID da pizza que você deseja exibir
+
+              try {
+                $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+                $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $row = $stmt->fetch();
+
+                if ($row) {
+                  $nome = $row["nome"];
+                  $preco = $row["preco"];
+                  $url_imagem = $row["url_imagem"];
+                  $em_estoque = $row["em_estoque"];
+                } else {
+                  echo "Pizza não encontrada";
+                }
+              } catch (PDOException $e) {
+                echo 'Erro ao executar a consulta: ' . $e->getMessage();
+              }
+
+              ?>
+
+              <div class="img">
+                <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+              </div>
+              <div class="text">
+                <h2><?php echo $nome; ?></h2>
+                <p>R$<?php echo $preco; ?></p>
+                <div class="estrelas">
+                  <i class='bx bxs-star'></i>
+                  <p>5</p>
+                </div>
+                <div class="btns">
+                  <?php if ($em_estoque) : ?>
+                    <a href="pizza_chocolate-branco.php">Comprar</a>
+                    <form action="add_to_cart.php" method="post">
+                      <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                      <input type="hidden" name="pizza_type" value="Comum">
+                      <button class="car" type="submit" name="add_to_cart">
+                        <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                        </lord-icon>
+                      </button>
+                    </form>
+                  <?php else : ?>
+                    <button disabled>Esgotada</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <?php
+
+              $pizza_id = 14; // ID da pizza que você deseja exibir
+
+              try {
+                $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+                $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $row = $stmt->fetch();
+
+                if ($row) {
+                  $nome = $row["nome"];
+                  $preco = $row["preco"];
+                  $url_imagem = $row["url_imagem"];
+                  $em_estoque = $row["em_estoque"];
+                } else {
+                  echo "Pizza não encontrada";
+                }
+              } catch (PDOException $e) {
+                echo 'Erro ao executar a consulta: ' . $e->getMessage();
+              }
+
+              ?>
+
+              <div class="img">
+                <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+              </div>
+              <div class="text">
+                <h2><?php echo $nome; ?></h2>
+                <p>R$<?php echo $preco; ?></p>
+                <div class="estrelas">
+                  <i class='bx bxs-star'></i>
+                  <p>5</p>
+                </div>
+                <div class="btns">
+                  <?php if ($em_estoque) : ?>
+                    <a href="pizza_doce-leite_banana.php">Comprar</a>
+                    <form action="add_to_cart.php" method="post">
+                      <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                      <input type="hidden" name="pizza_type" value="Comum">
+                      <button class="car" type="submit" name="add_to_cart">
+                        <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                        </lord-icon>
+                      </button>
+                    </form>
+                  <?php else : ?>
+                    <button disabled>Esgotada</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <?php
+
+              $pizza_id = 16; // ID da pizza que você deseja exibir
+
+              try {
+                $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+                $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $row = $stmt->fetch();
+
+                if ($row) {
+                  $nome = $row["nome"];
+                  $preco = $row["preco"];
+                  $url_imagem = $row["url_imagem"];
+                  $em_estoque = $row["em_estoque"];
+                } else {
+                  echo "Pizza não encontrada";
+                }
+              } catch (PDOException $e) {
+                echo 'Erro ao executar a consulta: ' . $e->getMessage();
+              }
+
+              ?>
+
+              <div class="img">
+                <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+              </div>
+              <div class="text">
+                <h2><?php echo $nome; ?></h2>
+                <p>R$<?php echo $preco; ?></p>
+                <div class="estrelas">
+                  <i class='bx bxs-star'></i>
+                  <p>5</p>
+                </div>
+                <div class="btns">
+                  <?php if ($em_estoque) : ?>
+                    <a href="pizza_cheesecake.php">Comprar</a>
+                    <form action="add_to_cart.php" method="post">
+                      <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                      <input type="hidden" name="pizza_type" value="Comum">
+                      <button class="car" type="submit" name="add_to_cart">
+                        <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                        </lord-icon>
+                      </button>
+                    </form>
+                  <?php else : ?>
+                    <button disabled>Esgotada</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <?php
+
+              $pizza_id = 17; // ID da pizza que você deseja exibir
+
+              try {
+                $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+                $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $row = $stmt->fetch();
+
+                if ($row) {
+                  $nome = $row["nome"];
+                  $preco = $row["preco"];
+                  $url_imagem = $row["url_imagem"];
+                  $em_estoque = $row["em_estoque"];
+                } else {
+                  echo "Pizza não encontrada";
+                }
+              } catch (PDOException $e) {
+                echo 'Erro ao executar a consulta: ' . $e->getMessage();
+              }
+
+              ?>
+
+              <div class="img">
+                <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+              </div>
+              <div class="text">
+                <h2><?php echo $nome; ?></h2>
+                <p>R$<?php echo $preco; ?></p>
+                <div class="estrelas">
+                  <i class='bx bxs-star'></i>
+                  <p>5</p>
+                </div>
+                <div class="btns">
+                  <?php if ($em_estoque) : ?>
+                    <a href="pizza_marshmallow.php">Comprar</a>
+                    <form action="add_to_cart.php" method="post">
+                      <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                      <input type="hidden" name="pizza_type" value="Comum">
+                      <button class="car" type="submit" name="add_to_cart">
+                        <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                        </lord-icon>
+                      </button>
+                    </form>
+                  <?php else : ?>
+                    <button disabled>Esgotada</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <?php
+
+              $pizza_id = 18; // ID da pizza que você deseja exibir
+
+              try {
+                $stmt = $PDO->prepare("SELECT nome, preco, url_imagem, em_estoque FROM pizzas_comum WHERE id = :pizza_id");
+                $stmt->bindParam(':pizza_id', $pizza_id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $row = $stmt->fetch();
+
+                if ($row) {
+                  $nome = $row["nome"];
+                  $preco = $row["preco"];
+                  $url_imagem = $row["url_imagem"];
+                  $em_estoque = $row["em_estoque"];
+                } else {
+                  echo "Pizza não encontrada";
+                }
+              } catch (PDOException $e) {
+                echo 'Erro ao executar a consulta: ' . $e->getMessage();
+              }
+
+              ?>
+
+              <div class="img">
+                <img class="pizza" src="<?php echo $url_imagem; ?>" width="100%" alt="" />
+              </div>
+              <div class="text">
+                <h2><?php echo $nome; ?></h2>
+                <p>R$<?php echo $preco; ?></p>
+                <div class="estrelas">
+                  <i class='bx bxs-star'></i>
+                  <p>5</p>
+                </div>
+                <div class="btns">
+                  <?php if ($em_estoque) : ?>
+                    <a href="pizza_negresco.php">Comprar</a>
+                    <form action="adicionar_ao_carrinho.php" method="post">
+                      <input type="hidden" name="pizza_id" value="<?php echo $pizza_id; ?>">
+                      <input type="hidden" name="pizza_type" value="Comum">
+                      <button class="car" type="submit" name="add_to_cart">
+                        <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
+                        </lord-icon>
+                      </button>
+                    </form>
+                  <?php else : ?>
+                    <button disabled>Esgotada</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <section class="criarpizza">
+          <a href="Criar_Pizza.php">Crie uma do Zero</a>
+        </section>
       </div>
-      <!-- // -->
-      <div class="doces">
-        <span>ou</span>
-        <!-- card -->
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/Pizza-chocolate.png" width="100%" alt="" />
-            </div>
-            <div class="text">
-              <h2>Chocolate</h2>
-              <p>R$20,00</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza-chocolate.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-       
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/pizza-romeuEjulieta.png" width="100%" alt="" />
-            </div>
-            <div class="text">
-              <h2>Romeu e Julieta</h2>
-              <p>R$23,50</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_Romeu-julieta.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="7"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img" style="font-size: 170px;">
-              <img class="pizza" src="img/pizza-banana.png" style="width: 150px; margin: 18px;" alt="" />
-            </div>
-            <div class="text">
-              <h2>Banana com Canela</h2>
-              <p>R$19,00</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_banana-canela.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="5"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/pizza-chocolate-branco2.png" style="width: 150px;  margin: 10px;" alt="" />
-            </div>
-            <div class="text">
-              <h2>Chocolate Branco</h2>
-              <p>R$28,00</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_chocolate-branco.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="6"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img" style="font-size: 154px;">
-              <img class="pizza" src="img/pizza-charge.png" style="width: 150px;  margin: 18px;" alt="" />
-            </div>
-            <div class="text">
-              <h2>Doce de leite com Banana</h2>
-              <p>R$24,50</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_doce-leite_banana.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/pizza-cheesecake.png" width="100%" alt="" />
-            </div>
-            <div class="text">
-              <h2>Cheesecake</h2>
-              <p>R$35,00</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_cheesecake.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/pizza-marshmallow.png" width="100%" alt="" />
-            </div>
-            <div class="text">
-              <h2>Marshmallow</h2>
-              <p>R$32,50</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_marshmallow.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="img">
-              <img class="pizza" src="img/pizza-negresco.png" width="100%" alt="" />
-            </div>
-            <div class="text">
-              <h2>Negresco</h2>
-              <p>R$32,00</p>
-              <div class="estrelas">
-                <i class='bx bxs-star'></i>
-                <p>5</p>
-              </div>
-              <div class="btns">
-                <a href="pizza_negresco.php">Comprar</a>
-                <form action="adicionar_ao_carrinho.php" method="post">
-                  <input type="hidden" name="pizza_id" value="1"> <!-- Coloque aqui o ID correspondente a esta pizza -->
-                  <button class="car" type="submit" name="adicionar_carrinho">
-                    <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 25px; height: 25px">
-                    </lord-icon>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <section class="criarpizza">
-        <a href="">Crie uma do Zero</a>
-      </section>
-    </div>
   </main>
 </body>
 

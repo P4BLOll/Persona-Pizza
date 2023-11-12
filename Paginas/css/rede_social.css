@@ -460,4 +460,31 @@ main {
     }
     
   }
-  
+  .seletor-de-pizza {
+    width: 200px;
+    font-size: 16px;
+    color: #fff;
+    background: #1212128b;
+    border-radius: 5px;
+    width:auto;
+    padding: .5rem;
+    resize: none;
+    /* Outros estilos conforme necessário */
+}
+section.informacoes-pizza{
+
+    margin-top: auto;
+}
+#crb{
+  display: grid;
+  place-content: center;
+  padding: 2px;
+  height: auto;
+  width: 40px;
+  background: transparent;
+  border-radius: 10px;
+  border: #D9D9D9 solid 2px;
+  font-size: 20px;
+  cursor: pointer;
+}
+

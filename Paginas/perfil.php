@@ -52,6 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     // Atualiza a variável $user com o novo caminho da foto
     $user['foto_perfil'] = $newPhotoPath;
 }
+// Obtém as pizzas criadas pelo usuário
+$stmt_pizzas = $PDO->prepare("SELECT * FROM pizzas_criada WHERE usuario_id = ?");
+$stmt_pizzas->execute([$userID]);
+$pizzas = $stmt_pizzas->fetchAll(PDO::FETCH_ASSOC);
+
 
 ?>
 
@@ -65,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/perfil.css">
-    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
 
 </head>
 
@@ -76,9 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     <div class="elipse">
         <!-- <img src="img/Ellipse 50.svg" alt=""> -->
     </div>
-    <div class="title">
-    <h1 class="name_u">Bem Vindo, <strong><?php echo $user['nome']; ?></strong></h1>
-    </div>
+    <h1 class="name_u">Bem Vindo, <?php echo $user['nome']; ?></h1>
     <?php if (!empty($user['foto_perfil'])) : ?>
     <div class="foto_perfil">
         <div class="moldura">
@@ -87,9 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
                 <form action="perfil.php" method="POST" enctype="multipart/form-data" id="upload_form">
                 <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
                     <label for="foto_perfil" class="anexar">
-                        <lord-icon class="lapis" src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
-                            colors="primary:#000000,secondary:#000000,tertiary:#ffffff,quaternary:#ffffff,quinary:#ffffff"
-                            state="hover-1"></lord-icon>
+                    <img src="img/pencil-regular-24.png" width="50%">
                     </label>
                     <button type="submit" id="submit_button_hidden" style="display: none;"></button>
                 </form>
@@ -99,14 +100,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
     <?php else : ?>
     <div class="foto_perfil">
         <div class="moldura">
-            <img class="foto"  id="avatar"src="img/system-solid-8-account.gif" width="100px" alt="Foto de Perfil Padrão">
+            <img class="foto" src="img/default_profile.png" alt="Foto de Perfil Padrão">
             <div class="upload_form">
                 <form action="perfil.php" method="POST" enctype="multipart/form-data" id="upload_form">
                 <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
                     <label for="foto_perfil" class="anexar">
-                        <lord-icon class="lapis" src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover"
-                            colors="primary:#000000,secondary:#000000,tertiary:#ffffff,quaternary:#ffffff,quinary:#ffffff"
-                            state="hover-1"></lord-icon>
+                    <img src="img/pencil-regular-24.png" width="50%">
+
+                    </lord-icon>
                     </label>
                     <button type="submit" id="submit_button_hidden" style="display: none;"></button>
                 </form>
@@ -122,6 +123,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['foto_perfil']['name
         <p class="Tdados"><strong>Nome:</strong> <?php echo $user['nome']; ?></p>
         <p class="Tdados"><strong>Email:</strong> <?php echo $user['email']; ?></p>
     </div>
+    <?php if (!empty($pizzas)) : ?>
+    <div class="container4">
+        <h2>Pizzas Criadas</h2>
+        <ul class="pizzas-list">
+        <?php foreach ($pizzas as $pizza) : ?>
+            <li class="pizza-item">
+                <h3>Nome: <?php echo $pizza['nome']; ?></h3>
+                <p>Tipo de Massa: <?php echo $pizza['tipo_de_massa']; ?></p>
+                <p>Ingredientes: <?php echo $pizza['ingredientes']; ?></p>
+                <p>Preço: <?php echo $pizza['preco']; ?> R$</p>
+                <?php if ($pizza['status'] == 0) : ?>
+                    <p>Status: Em Análise</p>
+                <?php else : ?>
+                    <p>Status: Aprovada</p>
+                    <form action="add_to_cart.php" method="post">
+                        <input type="hidden" name="pizza_id" value="<?php echo $pizza['id']; ?>">
+                        <input type="hidden" name="pizza_type" value="Criada">
+                        <button class="car" type="submit" name="add_to_cart">
+                            <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#ffffff" style="width: 40px; height: 25px"></lord-icon>
+                        </button>
+                    </form>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
 
     <div class="container3">
         <!-- Formulário para envio de nova foto de perfil -->

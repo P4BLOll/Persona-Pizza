@@ -1,0 +1,332 @@
+body {
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #1E1E1E;
+    margin: 0;
+    padding: 0;
+}
+
+
+::-webkit-scrollbar {
+    background: #1b1717;
+    width: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #D9D9D9;
+  }
+  
+h2 {
+    text-align: center;
+    align-self: center;
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 1rem;
+    color: #fff;
+    margin: 0;
+}
+
+h3{
+    font-size: 2rem;
+    color: #f2f2f2;
+
+
+}
+
+div.preco{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+button#pagar{
+    border: 2px solid #C33633;
+    background-color: #1E1E1E;
+    font-size: 1.2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #C33633;
+} 
+
+button#pagar:hover{
+    background-color: #C33633;
+    color: #f2f2f2;
+    transition: 0.5s;
+    
+}
+
+h3#preco{
+    text-align: center;
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 15%;
+    background-color: #1E1E1E;
+
+}
+
+h3.type{
+    color: #C33633;
+}
+
+main{
+    padding: 3rem 3rem;
+
+}
+.titulo{
+    margin-bottom: 3rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    padding-top: 1rem;
+    background-color: #1E1E1E;
+    height: 100%;
+    border-bottom: 1px solid #C33633;
+    width: 100%;
+}
+
+.table-container{
+    overflow-x: auto;
+    border-radius: 1rem 1rem 0 0;
+}
+
+table {
+    border-radius: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1E1E1E;
+}
+table th, table td {
+    font-size: 1.5rem;
+    background-color: #2c2b2b;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #c3363388;
+    color: #f2f2f2;
+}
+
+td#buttons{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.5rem;
+
+}
+
+tr#total td{
+    font-size: 2rem;
+    color: #f2f2f2;
+    padding: 3rem;
+}
+
+
+table th {
+    text-align: center;
+    background-color: #C33633;
+    color: #fff;
+}
+th#primeiro{
+    border-radius: 1rem 0 0 0;
+
+}
+
+th#ultimo{
+    border-radius: 0 1rem 0 0;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.actions button {
+    background-color: #C33633;
+    color: #fff;
+    border: none;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    display: grid;
+    place-content: center;
+}
+.actions button + button {
+    margin-left: 10px;
+}
+
+button#lixeira{
+    margin-left: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 10px;
+    padding: .2rem;
+    border: none;
+    background-color: #C33633;
+}
+
+button #lixeira {    
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+.voltar{
+    align-items: center;
+    padding: .5rem;
+    margin: 1rem;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 2rem;
+    background-color: #C33633;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #f2f2f2;
+}
+
+.voltar img{
+    margin: 1rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+
+.voltar .textbtn{
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+
+.voltar:active {
+    transform: translate(2px ,2px);
+  }
+
+
+
+  .voltarin{
+    align-items: center;
+    padding: .5rem;
+    margin: 1rem;
+    width: 8rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+    background-color: #C33633;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #f2f2f2;
+}
+
+.voltarin img{
+    margin: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+.voltarin .textbtn{
+    margin:.2rem;
+    font-size: 1.2rem;
+}
+
+
+.voltarin:active {
+    transform: translate(2px ,2px);
+  }
+
+
+
+
+
+.info{
+    display: flex;
+    flex-direction: row;
+}
+
+.info h3{
+    text-align: center;
+    font-size: 3rem;
+    margin: 1rem;
+}
+
+
+.vazio{
+    padding: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.vazio p{
+    text-align: center;
+    color: #f2f2f2;
+    font-size: 2rem;
+}
+
+.carro_vazio{
+    height: 15rem;
+    width: 15rem;
+}
+
+@media (max-width: 768px){
+
+table th{
+    font-size: 1rem;
+}
+
+table td{
+    font-size: 1rem;
+}
+
+p{
+    font-size: 1rem;
+
+}
+
+.actions{
+    gap: .5rem;
+}
+
+.actions button{
+    width: 2rem;
+    height: 2rem;
+}
+
+button#lixeira{
+    height: 2rem;
+    width: 2rem;
+}
+
+button #lixeira{
+    width: 1rem;
+    height: 1rem;
+}
+
+h3#preco{
+    width: 90%;
+}
+
+.voltarin{
+    width: 3.5rem;
+}
+
+.voltarin .textbtn{
+    opacity: 0;
+}
+
+.vazio{
+    padding: 3rem;
+}
+
+
+}
+
+

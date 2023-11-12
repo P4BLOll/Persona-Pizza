@@ -1,17 +1,17 @@
-<?php    
+<?php
 session_start();
-                
+
 if (!isset($_SESSION['user_id'])) {
-header("Location: index.php"); // Redireciona para a página de login se o usuário não estiver autenticado
-exit();
+    header("Location: index.php"); // Redireciona para a página de login se o usuário não estiver autenticado
+    exit();
 }
 
 // Verifica se o usuário está logado
 if (isset($_SESSION['user_id'])) {
     $isLoggedIn = true;
-  } else {
+} else {
     $isLoggedIn = false;
-  }
+}
 
 ?>
 
@@ -35,7 +35,7 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container ajuste">
         <div class="imgBx" style="background-image: url('img/Fundo_Pizzaria.jpg');">
-           <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
+            <img src="img/Pizza de azeitona, de cima.png" width="100%" height="100%" alt="">
         </div>
         <div class="details">
             <div class="content">
@@ -43,23 +43,25 @@ if (isset($_SESSION['user_id'])) {
                     <span>(Tradicional)</span>
                 </h2>
                 <p>
-                    
-                A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
+
+                    A pizza de azeitona é uma combinação saborosa de massa, molho de tomate, queijo e azeitonas fatiadas. Deliciosa e simples!
                 </p>
                 <div class="preco">
                     <h3>R$ 20,00</h3>
                 </div>
             </div>
             <div class="botao">
-                <form action="adicionar_ao_carrinho.php" method="post">
+                <form action="add_to_cart.php" method="post">
                     <input type="hidden" name="pizza_id" value="4"> <!-- Coloque aqui o ID correspondente a esta pizza -->
+                    <input type="hidden" name="pizza_type" value="Comum">
                     <div class="animacao">
-                      <button type="submit" name="adicionar_carrinho">Adicionar ao carrinho</button>
+                        <button type="submit" name="add_to_cart">Adicionar ao carrinho</button>
                     </div>
                 </form>
-                <form action="Personalizacao_Pizza/index.php">
+                <form action="personalizacao.php" method="post">
                     <div class="animacao">
-                        <button>Personalizar</button>
+                        <input type="hidden" name="pizza_perso" value="4">
+                        <button type="submit" name="personalizacao">Personalizar</button>
                     </div>
                 </form>
             </div>

@@ -1,0 +1,287 @@
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+/* Importação de fonte personalizada */
+/* @font-face {
+  font-family:'Brandier';
+  src: url(font/BrandiertrialBold-8M9q2-BF64dee9fa90c4d.otf)
+} */
+
+/* Reset de estilos para elementos HTML */
+* {
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #D9D9D9;
+  list-style: none;
+  text-decoration: dashed;
+}
+/* Estilos para a barra de navegação (navbar) */
+nav .logo .bx-menu {
+    display: none;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #121212;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.445);
+    z-index: 1000;
+  }
+  
+  nav .logo ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: .5rem;
+    color: #D9D9D9;
+    justify-content: space-between;
+  }
+  
+  nav .logo ul li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo ul div a {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 9px;
+    background: #C33633;
+  }
+  
+  nav .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 24px;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .logo .menu-icon {
+    color: #D9D9D9;
+    font-size: 24px;
+    margin-right: 14px;
+    cursor: pointer;
+  }
+  
+  .logo .logo-name {
+    color: #D9D9D9;
+    font-size: 22px;
+    font-weight: 50px;
+    display: flex;
+    align-items: center;
+    margin-right: 5rem;
+  }
+  
+  nav .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 260px;
+    padding: 20px 0;
+    background-color: #1b1717;
+    transition: all .5s ease-in;
+  }
+  
+  nav.open .sidebar {
+    left: 0;
+  }
+  
+  .sidebar .sidebar-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 16px;
+  }
+  
+  .sidebar-content .list {
+    list-style: none;
+  }
+  
+  .sair {
+    background: #C33633;
+    color: #D9D9D9;
+    border-radius: 10px;
+  }
+  
+  .sair-a {
+    justify-content: center;
+  }
+  
+  .list .nav-link {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    padding: 14px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  
+  .lists .nav-link:hover {
+    background-color: #3E3636;
+  }
+  
+  nav .logo ul a {
+    padding: 4px 12px;
+    border-radius: 10px;
+  }
+  
+  nav .logo ul a:hover {
+    background-color: #3E3636;
+    transition: all .2s ease-in-out;
+  }
+  
+  .nav-link .icon {
+    margin-right: 14px;
+    font-size: 20px;
+    color: #D9D9D9;
+  }
+  
+  .nav-link .link {
+    font-size: 16px;
+    color: #D9D9D9;
+    font-weight: 400;
+  }
+  
+  .lists .nav-link:hover .icon,
+  .lists .nav-link:hover .link {
+    color: #D9D9D9;
+  }
+  
+  /* Estilos para a sobreposição (overlay) */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 1000vh;
+    width: 200%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease-in;
+    background: rgba(0, 0, 0, 0.651);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+  }
+  
+  nav.open ~ .overlay {
+    opacity: 1;
+    left: 260px;
+    pointer-events: auto;
+  }
+  @media (max-width: 950px) {
+  .criarpizza a{
+    background: #C33633;
+    padding:.5rem 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  .funcionalidades span:nth-child(1){
+    position: absolute;
+    left: 2rem;
+    top:-5rem;
+    width: 5rem;
+ 
+  }
+  .funcionalidades span:nth-child(2){
+    right: 2rem;
+    top: -6.3rem;
+    position: absolute;
+    width: 5rem;
+  }
+  .capa {
+    height: 500px;
+  }
+  
+  .capa .arrow {
+    display: none;
+  }
+  
+  .capa span {
+    width: 200%;
+  }
+  
+  .capa .text .element > p,
+  h1,
+  a {
+    font-size: 2rem;
+  }
+  
+  .capa .text .element a {
+    width: 50%;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  
+  .capa .img img {
+    width: 20%;
+  }
+  
+  .logo .logo-name {
+    font-size: 20px;
+  }
+  
+  nav .logo .bx-menu {
+    display: block;
+  }
+  
+  nav .logo ul {
+    display: none;
+  }
+  
+  .Cardapio .card {
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    padding: 1rem;
+  }
+  
+  .Cardapio .card::after {
+    left: 5px;
+    top: 205px;
+    width: 5px;
+  }
+  
+  .information {
+    font-size: 13px;
+    gap: 10px;
+  }
+  
+  .information p {
+    width: 250px;
+  }
+  
+  .information::before {
+    left: -15px;
+    height: 100px;
+  }
+  
+  .salgados::before {
+    left: 35%;
+  }
+  .doces::before{
+    left: 37%;
+  }
+  .doces span{
+    left: 40%;
+  }
+}
+
+@media (max-width: 1434px) {
+  .capa span {
+    width: 250%;
+  }
+}
+form .InputADM{
+ color: #121212 !important;
+}
