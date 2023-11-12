@@ -8,7 +8,7 @@
 
 Bem-vindo à Personapizza, onde a magia acontece na criação de pizzas personalizadas! Nosso objetivo é que os clientes mergulhem na experiência de personalizar suas pizzas, refletindo suas preferências e individualidade.
 
-A Persona Pizza é um projeto desenvolvido pelos alunos Ricardo Luquetti, Pablo Sousa, Matheus Curci, Victor Navarro, João Pedro da Etec Zona Leste. Nossa jornada começou no Primero Ano de Desenvolvimento de sistemas em parceria com a IBM e finalizado durante o segundo ano do curso do programa P-TECH.
+A Persona Pizza é um projeto desenvolvido pelos alunos Ricardo Luquetti, Pablo Sousa, Matheus Curci, Victor Navarro, João Pedro da Etec Zona Leste. Nossa jornada começou no Primero Ano do curso tecnico de Desenvolvimento de sistemas com o (front-end) em parceria com a empresa IBM e foi finalizado durante o segundo ano com o (back-end) no programa P-TECH.
 
   <h2 align="center">Linguagens Utilizadas:</h2>
     JS (JavaScript)<br>
