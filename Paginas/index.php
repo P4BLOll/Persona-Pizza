@@ -105,10 +105,8 @@ unset($_SESSION['error']); // Limpe a mensagem de erro da sessão
                     </div>
                     <!-- Botão de envio do formulário de cadastro -->
                     <button class="form_button" type="submit">Cadastrar</button>
-                    <!-- Container para ícones de redes sociais -->
                 </form>
             </div>
-            <!-- Container para sobreposição de imagem -->
             <div class="overlay_container">
                 <div class="overlay">
                     <!-- Imagem de sobreposição -->
