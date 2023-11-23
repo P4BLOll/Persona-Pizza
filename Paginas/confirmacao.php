@@ -85,6 +85,7 @@ if (isset($_POST['confirmacao'])) {
                                 $precoEdicoesIngrediente = 0;
                                 ?>
                                 <tr>
+                                    <td><?= $pedacos ?></td>
                                     <td><?= $ingredientName ?></td>
                                     <td><?= $quantity ?></td>
                                     <td>Desconto de R$ 3,00</td>
